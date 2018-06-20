@@ -59,7 +59,7 @@ volatile uint16_t DMA_receive_reg[ 12 ];
 volatile uint16_t received;
 int count = 0;
 volatile int SS = 0;
-
+volatile int motor_position = 0;
 //Ptrs to the position of send data
 volatile uint16_t *velocity;
 volatile uint16_t *current;
@@ -269,7 +269,7 @@ void process_data ( void ) {
 	
 	//*message_type;
 	//*duty_cycle;
-	
+	*position = motor_position;
 }
 
 void SS_Low( void ) {
@@ -331,6 +331,22 @@ void SS_High ( void ) {
 	SS = 1;
 	
 } 
+
+void rotary_encoder ( void ) {
+	//Triggered on the rising Edge of Enc_B ( P2.4 ). 
+
+	//Check status of Enc_A ( P2.0 )
+	if ( PORT_ReadPin(0x20U) ) {
+		
+		//If Enc_A is already on, it means a turn in 1 direction:
+		motor_position++;
+	
+	} else {
+		
+		motor_position--;
+	}
+}
+
 
 /* Notes to Self:
 This command can set high low as well as input output

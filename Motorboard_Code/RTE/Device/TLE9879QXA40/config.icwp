@@ -1,4 +1,4 @@
-/*sha256=E4E51A1AC86B3C2EAF96723117557205FC2164584DE35230CDAFB6CDF22EA464*/
+/*sha256=8B0D554AD6E28E60399FC661935A9BCE17DB989C99C5C6BD92E0778B9972A25D*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Wed Jun 20 22:15:00 2018
+created on:Wed Jun 20 22:28:53 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _CONFIG_H
@@ -625,8 +625,8 @@ created on:Wed Jun 20 22:15:00 2018
 #define DMA_SSC_TX_INT_EN 1
 #define EXINT0_FALLING_CALLBACK place_your_function_call_back_here
 #define EXINT0_RISING_CALLBACK place_your_function_call_back_here
-#define EXINT1_FALLING_CALLBACK SS_Low
-#define EXINT1_RISING_CALLBACK SS_High
+#define EXINT1_FALLING_CALLBACK 
+#define EXINT1_RISING_CALLBACK rotary_encoder
 #define EXINT2_FALLING_CALLBACK SS_Low
 #define EXINT2_RISING_CALLBACK SS_High
 /*GPT12E_CAPREL: 65535*/
@@ -946,12 +946,12 @@ created on:Wed Jun 20 22:15:00 2018
 #define SCU_ECC_RAM_DB_INT_EN 0
 /*SCU_EDCCON: 0|(0<<2)*/
 #define SCU_EDCCON (0x0u)
-/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(1<<2)|(1<<3)|(1<<4)|(1<<5)*/
-#define SCU_EXICON0 (0x3Cu)
+/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(1<<2)|(0<<3)|(1<<4)|(1<<5)*/
+#define SCU_EXICON0 (0x34u)
 #define SCU_EXINT0_FALLING_INT_EN 0
 #define SCU_EXINT0_RISING_INT_EN 0
-#define SCU_EXINT1_FALLING_INT_EN 1
-#define SCU_EXINT1_RISING_INT_EN 0
+#define SCU_EXINT1_FALLING_INT_EN 0
+#define SCU_EXINT1_RISING_INT_EN 1
 #define SCU_EXINT2_FALLING_INT_EN 0
 #define SCU_EXINT2_RISING_INT_EN 0
 #define SCU_FSYS 2.4e+07
@@ -971,10 +971,10 @@ created on:Wed Jun 20 22:15:00 2018
 #define SCU_MODIEN2 (0x0u)
 /*SCU_MODIEN3: (0<<4)|0*/
 #define SCU_MODIEN3 (0x0u)
-/*SCU_MODIEN4: 0*/
-#define SCU_MODIEN4 (0x0u)
-/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(1<<2)|(3<<4)*/
-#define SCU_MODPISEL (0x37u)
+/*SCU_MODIEN4: 1*/
+#define SCU_MODIEN4 (0x1u)
+/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(3<<4)*/
+#define SCU_MODPISEL (0x3Fu)
 /*SCU_MODPISEL1: (0<<6)|(0<<7)|0*/
 #define SCU_MODPISEL1 (0x0u)
 /*SCU_MODPISEL2: 1|(0<<4)|(0<<2)|(2<<6)*/
