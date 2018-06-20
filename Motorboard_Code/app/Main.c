@@ -67,6 +67,7 @@ volatile uint16_t *tendon_stretch;
 volatile uint16_t *sensor1;
 volatile uint16_t *sensor2;
 volatile uint16_t *position;
+volatile uint16_t *error_flag;
 
 
 // Pointers to the positions of received data
@@ -84,6 +85,7 @@ static void Main_lStopMotor(void);
 void Poti_Handler(void);
 void process_data ( void );
 void SS_High ( void );
+void SS_Low( void );
 /*******************************************************************************
 **                      Global Variable Definitions                           **
 *******************************************************************************/
@@ -115,24 +117,23 @@ int main(void)
   *****************************************************************************/
   TLE_Init();
 	
-  /* Initialize E-Motor application */
-  Emo_Init();
+  Emo_Init(); //Initialize E-Motor application
 	DMA_Init(); // Initialise the DMA
-	DMA_Master_En(); // Apparently starts the DMA running. 
-	PORT_Init();
+	DMA_Master_En(); // Starts the DMA
+	PORT_Init(); //Initialises the ports
 	
 	for( i = 0; i < DMA_CH2_NoOfTrans; i++ ) {
 		DMA_send_reg[ i ] = ( uint16_t ) ( 0x0000 );
 		DMA_receive_reg[ i ] = (uint16_t)( 0x0000 );
 	}
 	
-	position = &DMA_send_reg[6];
-	velocity = &DMA_send_reg[7];
-	current = &DMA_send_reg[8];
-	tendon_stretch = &DMA_send_reg[9];
-	sensor1 = &DMA_send_reg[10];
-	sensor2 = &DMA_send_reg[11];
-	//error_flag = &DMA_send_reg[12];
+	position = &DMA_send_reg[4];
+	velocity = &DMA_send_reg[6];
+	current = &DMA_send_reg[7];
+	tendon_stretch = &DMA_send_reg[8];
+	sensor1 = &DMA_send_reg[9];
+	sensor2 = &DMA_send_reg[10];
+	error_flag = &DMA_send_reg[11];
 	
 	message_type = &DMA_receive_reg[0];
 	duty_cycle = &DMA_receive_reg[1];
@@ -143,7 +144,7 @@ int main(void)
 	Main_lStartMotor();
 	DMA_Reset_Channel( DMA_CH2, ( DMA_CH3_NoOfTrans - 1 ));
 	DMA_Reset_Channel( DMA_CH3, DMA_CH2_NoOfTrans );
-  DMA_receive_reg[0] = SSC1_SendWord(0xA0AA); 
+  DMA_receive_reg[0] = SSC1_SendWord(0x0000); 
 	
   while (1)
   { 
@@ -257,26 +258,25 @@ void receive_data ( void ) {
 	
 }
 
-
+/* Set all output values and process received data */
 void process_data ( void ) {
+	
 	*position = 0xCAFE;
-	//*velocity = 0xFACE;
+	*velocity = Emo_GetAbsSpeed();
 	*current = 0xFADE;
 	*tendon_stretch = 0xFEED;
 	*sensor1 = 0x1001;
 	*sensor2 = 0x1002;
-	//error_flag = &DMA_send_reg[12];
+	*error_flag = 0x1005;
 	
-	//*message_type;
-	//*duty_cycle;
 	
 }
 
+/*	Called on the falling edge of the CS Pin. Used to set
+		the MISO pin to be an output
+*/
 void SS_Low( void ) {
-	//PORT_ChangePin( 0x04U, PORT_ACTION_OUTPUT );
-
 	
-	//uint32 Action = PORT_ACTION_OUTPUT;
   volatile uint8 *pSfr;
   uint32 PinMask;
 	uint32 PortPin = 0x04U;
@@ -295,46 +295,33 @@ void SS_Low( void ) {
   
 	__enable_irq();
 	
-	//PORT_ChangePin( 0x04U, PORT_ACTION_OUTPUT );
-	
-	//Work out which pin is 
-	*velocity = Emo_GetAbsSpeed();
-	
-	//DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans);
-	//DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans);
-	
 	SS = 0;
 }
 
-
+/*	Called on the rising edge of the CS Pin. Used to set
+		the MISO pin to be an input
+*/
 void SS_High ( void ) {
 	
-
-	//PORT_ChangePin( 0x04U, PORT_ACTION_INPUT );
   volatile uint8 *pSfr;
   uint32 PinMask;
 
-  //Pin mask = 1 shifted left by pin 
 	uint32 PortPin = 0x04U;
-	//uint32 Action = PORT_ACTION_INPUT;
-  // DATA pointer = address of P0_DATA + port * 8 
   pSfr = (&(PORT->P0_DATA.reg)) + ((PortPin >> 4U) << 3U);
 
   // Change DATA register according to Action 
-  //__disable_irq();
+  __disable_irq();
 	
   pSfr = (&(PORT->P0_DIR.reg)) + ((PortPin >> 4U) << 3U);
   *pSfr &= (~PinMask);
 
-  //__enable_irq();                          //End of PORT_ChangePinAlt 
+  __enable_irq();                          //End of PORT_ChangePinAlt 
 	
 	SS = 1;
 	
 } 
 
 /* Notes to Self:
-This command can set high low as well as input output
-void PORT_ChangePin(uint32 PortPin, uint32 Action
 
 I need to change the SSC channel to use 2 instead of 1.
 As this is required for the pin assignment chosen.
