@@ -1,4 +1,4 @@
-/*sha256=5904540D0E04CAD97D63C9ECAE940F43D751D0ACEF6DD438D904025F274A5C8D*/
+/*sha256=AB1494BB78524CD5874FB5C29439A4C7F925CA708BEC1E88965DFFDA31EB3017*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Wed May 30 12:52:22 2018
+created on:Fri Jun 15 18:33:14 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _ISR_DEFINES_H
@@ -682,11 +682,11 @@ created on:Wed May 30 12:52:22 2018
 #endif
 
 #ifndef EXINT1_FALLING_CALLBACK
-#define EXINT1_FALLING_CALLBACK place_your_function_call_back_here
+#define EXINT1_FALLING_CALLBACK SS_Low
 #endif
 
 #ifndef EXINT1_RISING_CALLBACK
-#define EXINT1_RISING_CALLBACK place_your_function_call_back_here
+#define EXINT1_RISING_CALLBACK SS_High
 #endif
 
 #ifndef EXINT2_FALLING_CALLBACK

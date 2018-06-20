@@ -1,4 +1,4 @@
-/*sha256=8E353FF534A1D1F5234821B1E5FA7C714139F85D0D3C77FC139325A390612FEB*/
+/*sha256=39E1630F894A4DA2FE97DA708F38B160CEC396431E411E57DD5A0854D9C12854*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Wed Jun 13 15:36:38 2018
+created on:Fri Jun 15 22:29:18 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _INT_DEFINES_H
@@ -57,35 +57,35 @@ created on:Wed Jun 13 15:36:38 2018
   #define CPU_MEMMANAGE_EN 0
 #endif
 
-/*CPU_NVIC_IPR0: (0<<4)|(0<<12)|(0<<20)|(15<<28)*/
+/*CPU_NVIC_IPR0: (2<<4)|(2<<12)|(2<<20)|(2<<28)*/
 #ifndef CPU_NVIC_IPR0
-  #define CPU_NVIC_IPR0 (0xF0000000u)
+  #define CPU_NVIC_IPR0 (0x20202020u)
 #endif
 
-/*CPU_NVIC_IPR1: (1<<4)|(0<<12)|(0<<20)|(0<<28)*/
+/*CPU_NVIC_IPR1: (2<<4)|(2<<12)|(2<<20)|(2<<28)*/
 #ifndef CPU_NVIC_IPR1
-  #define CPU_NVIC_IPR1 (0x10u)
+  #define CPU_NVIC_IPR1 (0x20202020u)
 #endif
 
-/*CPU_NVIC_IPR2: (5<<4)|(5<<12)|(0<<20)|(0<<28)*/
+/*CPU_NVIC_IPR2: (1<<4)|(1<<12)|(2<<20)|(2<<28)*/
 #ifndef CPU_NVIC_IPR2
-  #define CPU_NVIC_IPR2 (0x5050u)
+  #define CPU_NVIC_IPR2 (0x20201010u)
 #endif
 
-/*CPU_NVIC_IPR3: (0<<4)|(0<<12)|(0<<20)|(5<<28)*/
+/*CPU_NVIC_IPR3: (0<<4)|(0<<12)|(1<<20)|(1<<28)*/
 #ifndef CPU_NVIC_IPR3
-  #define CPU_NVIC_IPR3 (0x50000000u)
+  #define CPU_NVIC_IPR3 (0x10100000u)
 #endif
 
 /*CPU_NVIC_ISER0: 0|(0<<1)|(0<<2)|(1<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<\
-<9)|(0<<10)|(1<<11)|(0<<12)|(0<<13)|(0<<14)|(1<<15)*/
+<9)|(0<<10)|(0<<11)|(0<<12)|(1<<13)|(0<<14)|(1<<15)*/
 #ifndef CPU_NVIC_ISER0
-  #define CPU_NVIC_ISER0 (0x8818u)
+  #define CPU_NVIC_ISER0 (0xA018u)
 #endif
 
-/*CPU_NVIC_SHPR3: (0<<28)*/
+/*CPU_NVIC_SHPR3: (1<<28)*/
 #ifndef CPU_NVIC_SHPR3
-  #define CPU_NVIC_SHPR3 (0x0u)
+  #define CPU_NVIC_SHPR3 (0x10000000u)
 #endif
 
 #ifndef CPU_SYSTICK_EN
@@ -138,9 +138,9 @@ created on:Wed Jun 13 15:36:38 2018
   #define SCU_EDCCON (0x0u)
 #endif
 
-/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(0<<2)|(0<<3)|(1<<4)|(1<<5)*/
+/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(1<<2)|(1<<3)|(1<<4)|(1<<5)*/
 #ifndef SCU_EXICON0
-  #define SCU_EXICON0 (0x30u)
+  #define SCU_EXICON0 (0x3Cu)
 #endif
 
 /*SCU_GPT12IEN: 0|(0<<1)|(0<<2)|(0<<3)|(0<<5)|(0<<4)*/
@@ -153,9 +153,9 @@ created on:Wed Jun 13 15:36:38 2018
   #define SCU_MODIEN1 (0x0u)
 #endif
 
-/*SCU_MODIEN2: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)|(1<<5)*/
+/*SCU_MODIEN2: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)|(0<<5)*/
 #ifndef SCU_MODIEN2
-  #define SCU_MODIEN2 (0x20u)
+  #define SCU_MODIEN2 (0x0u)
 #endif
 
 /*SCU_NMICON: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)*/

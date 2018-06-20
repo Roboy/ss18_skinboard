@@ -1,4 +1,4 @@
-/*sha256=08FA15CAD671624A8B1BCAFA350C04CE1FA48A262439F27EC0921D3CA3A6823D*/
+/*sha256=F5E2FE458C34DA9AEA85636FF60374D14ABA06BAA1D12D92F99483301BA1798D*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Wed Jun 13 15:36:38 2018
+created on:Wed Jun 20 22:15:00 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _PORT_DEFINES_H
@@ -145,9 +145,9 @@ created on:Wed Jun 13 15:36:38 2018
   #define PORT_P1_3_ALT (0x0u)
 #endif
 
-/*PORT_P1_3_PUD: 0*/
+/*PORT_P1_3_PUD: 3*/
 #ifndef PORT_P1_3_PUD
-  #define PORT_P1_3_PUD (0x0u)
+  #define PORT_P1_3_PUD (0x3u)
 #endif
 
 /*PORT_P1_4_ALT: 0*/

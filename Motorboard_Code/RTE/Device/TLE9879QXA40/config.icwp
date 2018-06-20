@@ -1,4 +1,4 @@
-/*sha256=1866CDA26A3F870C15FEA559954CEF42A6A80257FA4F1BEAEBAA30F0ED74484F*/
+/*sha256=E4E51A1AC86B3C2EAF96723117557205FC2164584DE35230CDAFB6CDF22EA464*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Wed Jun 13 15:36:38 2018
+created on:Wed Jun 20 22:15:00 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _CONFIG_H
@@ -389,19 +389,19 @@ created on:Wed Jun 13 15:36:38 2018
 #define CPU_HARDFAULT_EN 0
 #define CPU_MEMMANAGE_CALLBACK place_your_function_call_back_here
 #define CPU_MEMMANAGE_EN 0
-/*CPU_NVIC_IPR0: (0<<4)|(0<<12)|(0<<20)|(15<<28)*/
-#define CPU_NVIC_IPR0 (0xF0000000u)
-/*CPU_NVIC_IPR1: (1<<4)|(0<<12)|(0<<20)|(0<<28)*/
-#define CPU_NVIC_IPR1 (0x10u)
-/*CPU_NVIC_IPR2: (5<<4)|(5<<12)|(0<<20)|(0<<28)*/
-#define CPU_NVIC_IPR2 (0x5050u)
-/*CPU_NVIC_IPR3: (0<<4)|(0<<12)|(0<<20)|(5<<28)*/
-#define CPU_NVIC_IPR3 (0x50000000u)
+/*CPU_NVIC_IPR0: (2<<4)|(2<<12)|(2<<20)|(2<<28)*/
+#define CPU_NVIC_IPR0 (0x20202020u)
+/*CPU_NVIC_IPR1: (2<<4)|(2<<12)|(2<<20)|(2<<28)*/
+#define CPU_NVIC_IPR1 (0x20202020u)
+/*CPU_NVIC_IPR2: (1<<4)|(1<<12)|(2<<20)|(2<<28)*/
+#define CPU_NVIC_IPR2 (0x20201010u)
+/*CPU_NVIC_IPR3: (0<<4)|(0<<12)|(1<<20)|(1<<28)*/
+#define CPU_NVIC_IPR3 (0x10100000u)
 /*CPU_NVIC_ISER0: 0|(0<<1)|(0<<2)|(1<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<\
-<9)|(0<<10)|(1<<11)|(0<<12)|(0<<13)|(0<<14)|(1<<15)*/
-#define CPU_NVIC_ISER0 (0x8818u)
-/*CPU_NVIC_SHPR3: (0<<28)*/
-#define CPU_NVIC_SHPR3 (0x0u)
+<9)|(0<<10)|(0<<11)|(0<<12)|(1<<13)|(0<<14)|(1<<15)*/
+#define CPU_NVIC_ISER0 (0xA018u)
+/*CPU_NVIC_SHPR3: (1<<28)*/
+#define CPU_NVIC_SHPR3 (0x10000000u)
 #define CPU_SYSTICK_CALLBACK Main_HandleSysTick
 #define CPU_SYSTICK_EN 1
 #define CPU_USAGEFAULT_CALLBACK place_your_function_call_back_here
@@ -625,8 +625,8 @@ created on:Wed Jun 13 15:36:38 2018
 #define DMA_SSC_TX_INT_EN 1
 #define EXINT0_FALLING_CALLBACK place_your_function_call_back_here
 #define EXINT0_RISING_CALLBACK place_your_function_call_back_here
-#define EXINT1_FALLING_CALLBACK place_your_function_call_back_here
-#define EXINT1_RISING_CALLBACK place_your_function_call_back_here
+#define EXINT1_FALLING_CALLBACK SS_Low
+#define EXINT1_RISING_CALLBACK SS_High
 #define EXINT2_FALLING_CALLBACK SS_Low
 #define EXINT2_RISING_CALLBACK SS_High
 /*GPT12E_CAPREL: 65535*/
@@ -870,8 +870,8 @@ created on:Wed Jun 13 15:36:38 2018
 #define PORT_P1_2_PUD (0x3u)
 /*PORT_P1_3_ALT: 0*/
 #define PORT_P1_3_ALT (0x0u)
-/*PORT_P1_3_PUD: 0*/
-#define PORT_P1_3_PUD (0x0u)
+/*PORT_P1_3_PUD: 3*/
+#define PORT_P1_3_PUD (0x3u)
 /*PORT_P1_4_ALT: 0*/
 #define PORT_P1_4_ALT (0x0u)
 /*PORT_P1_4_PUD: 0*/
@@ -946,14 +946,14 @@ created on:Wed Jun 13 15:36:38 2018
 #define SCU_ECC_RAM_DB_INT_EN 0
 /*SCU_EDCCON: 0|(0<<2)*/
 #define SCU_EDCCON (0x0u)
-/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(0<<2)|(0<<3)|(1<<4)|(1<<5)*/
-#define SCU_EXICON0 (0x30u)
+/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(1<<2)|(1<<3)|(1<<4)|(1<<5)*/
+#define SCU_EXICON0 (0x3Cu)
 #define SCU_EXINT0_FALLING_INT_EN 0
 #define SCU_EXINT0_RISING_INT_EN 0
-#define SCU_EXINT1_FALLING_INT_EN 0
+#define SCU_EXINT1_FALLING_INT_EN 1
 #define SCU_EXINT1_RISING_INT_EN 0
-#define SCU_EXINT2_FALLING_INT_EN 1
-#define SCU_EXINT2_RISING_INT_EN 1
+#define SCU_EXINT2_FALLING_INT_EN 0
+#define SCU_EXINT2_RISING_INT_EN 0
 #define SCU_FSYS 2.4e+07
 /*SCU_GPT12IEN: 0|(0<<1)|(0<<2)|(0<<3)|(0<<5)|(0<<4)*/
 #define SCU_GPT12IEN (0x0u)
@@ -967,14 +967,14 @@ created on:Wed Jun 13 15:36:38 2018
 #define SCU_LINST (0x6u)
 /*SCU_MODIEN1: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)*/
 #define SCU_MODIEN1 (0x0u)
-/*SCU_MODIEN2: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)|(1<<5)*/
-#define SCU_MODIEN2 (0x20u)
+/*SCU_MODIEN2: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)|(0<<5)*/
+#define SCU_MODIEN2 (0x0u)
 /*SCU_MODIEN3: (0<<4)|0*/
 #define SCU_MODIEN3 (0x0u)
 /*SCU_MODIEN4: 0*/
 #define SCU_MODIEN4 (0x0u)
-/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(3<<4)*/
-#define SCU_MODPISEL (0x3Fu)
+/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(1<<2)|(3<<4)*/
+#define SCU_MODPISEL (0x37u)
 /*SCU_MODPISEL1: (0<<6)|(0<<7)|0*/
 #define SCU_MODPISEL1 (0x0u)
 /*SCU_MODPISEL2: 1|(0<<4)|(0<<2)|(2<<6)*/

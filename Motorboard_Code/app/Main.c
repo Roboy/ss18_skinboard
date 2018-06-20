@@ -58,7 +58,7 @@ volatile uint16_t DMA_send_reg[ 12 ];
 volatile uint16_t DMA_receive_reg[ 12 ];
 volatile uint16_t received;
 int count = 0;
-int SS = 0;
+volatile int SS = 0;
 
 //Ptrs to the position of send data
 volatile uint16_t *velocity;
@@ -83,6 +83,7 @@ static void Main_lStartMotor(void);
 static void Main_lStopMotor(void);
 void Poti_Handler(void);
 void process_data ( void );
+void SS_High ( void );
 /*******************************************************************************
 **                      Global Variable Definitions                           **
 *******************************************************************************/
@@ -106,7 +107,7 @@ void process_data ( void );
  */
 int main(void)
 {
-	
+	uint32_t pin_read = 0x00000000; 
 	int i;
   /*****************************************************************************
   ** initialization of the hardware modules based on the configuration done   **
@@ -120,10 +121,11 @@ int main(void)
 	DMA_Master_En(); // Apparently starts the DMA running. 
 	PORT_Init();
 	
-		for( i = 0; i < DMA_CH2_NoOfTrans; i++ ) {
+	for( i = 0; i < DMA_CH2_NoOfTrans; i++ ) {
 		DMA_send_reg[ i ] = ( uint16_t ) ( 0x0000 );
 		DMA_receive_reg[ i ] = (uint16_t)( 0x0000 );
 	}
+	
 	position = &DMA_send_reg[6];
 	velocity = &DMA_send_reg[7];
 	current = &DMA_send_reg[8];
@@ -139,7 +141,7 @@ int main(void)
 	//This begins the SPI device triggering it's interrupt to ask for more bytes.
 	Emo_SetRefSpeed(2000);
 	Main_lStartMotor();
-	DMA_Reset_Channel( DMA_CH2, (DMA_CH3_NoOfTrans - 1) );
+	DMA_Reset_Channel( DMA_CH2, ( DMA_CH3_NoOfTrans - 1 ));
 	DMA_Reset_Channel( DMA_CH3, DMA_CH2_NoOfTrans );
   DMA_receive_reg[0] = SSC1_SendWord(0xA0AA); 
 	
@@ -153,7 +155,7 @@ int main(void)
 void Main_HandleSysTick(void)
 {
   /* Callback function executed every ms for speed control */
-  Emo_CtrlSpeed();
+  //Emo_CtrlSpeed();
 } /* End of Main_HandleSysTick */
 
 /*******************************************************************************
@@ -214,21 +216,30 @@ void Poti_Handler(void)
 
 //Function to be called once the DMA transfers all 12 bytes. 
 void transmit_data ( void ) {
-	
-	process_data();
+	int j;
+	//process_data();
 	//try to change the data to be sent. 
 	/*for( i = 0; i < 12; i++ ) {
 		DMA_send_reg[ i ] = DMA_receive_reg[ i ]; 
 	}*/
 	//DMA_send_reg[0] = 0x8000;
-	DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans);
+	
+	
+	//PORT_ChangePin( 0x04U, PORT_ACTION_INPUT );
 
 	//SSC1_SendWord( 0xF00D );
-	
+	process_data();
+	for ( j = 0; j < DMA_CH2_NoOfTrans; j++) {
+		if (DMA_receive_reg[j] == 0x8000) {
+				DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans - j);
+				DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans - j);
+		}
+	}
 }
 
 //Basically want to use this one to keep my DMA in sync with  the frame. 
 void receive_data ( void ) {
+	int j = 0;
 	//printf( "SPI Read: %x\n", DMA_receive_reg[count]);
 	/*DMA_receive_reg[ count ] = received;
 	if ( DMA_receive_reg[ 0 ] == 0x8000 ) {
@@ -240,13 +251,16 @@ void receive_data ( void ) {
 	} else {
 		count++;
 	} */
-	DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans);
+	//DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans - j);
+	//DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans - j);
+	
+	
 }
 
 
 void process_data ( void ) {
 	*position = 0xCAFE;
-	*velocity = 0xFACE;
+	//*velocity = 0xFACE;
 	*current = 0xFADE;
 	*tendon_stretch = 0xFEED;
 	*sensor1 = 0x1001;
@@ -259,19 +273,21 @@ void process_data ( void ) {
 }
 
 void SS_Low( void ) {
+	//PORT_ChangePin( 0x04U, PORT_ACTION_OUTPUT );
 
+	
 	//uint32 Action = PORT_ACTION_OUTPUT;
   volatile uint8 *pSfr;
   uint32 PinMask;
 	uint32 PortPin = 0x04U;
 
-  /* Pin mask = 1 shifted left by pin */
+  //Pin mask = 1 shifted left by pin
   PinMask = 1U << (PortPin & 0x7U);
 
-  /* DATA pointer = address of P0_DATA + port * 8 */
+  //DATA pointer = address of P0_DATA + port * 8 
   pSfr = (&(PORT->P0_DATA.reg)) + ((PortPin >> 4U) << 3U);
 
-  /* Change DATA register according to Action */
+  //Change DATA register according to Action 
   __disable_irq();
   
 	pSfr = (&(PORT->P0_DIR.reg)) + ((PortPin >> 4U) << 3U);
@@ -280,13 +296,14 @@ void SS_Low( void ) {
 	__enable_irq();
 	
 	//PORT_ChangePin( 0x04U, PORT_ACTION_OUTPUT );
-	SS = 0;
+	
 	//Work out which pin is 
 	*velocity = Emo_GetAbsSpeed();
 	
 	//DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans);
 	//DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans);
 	
+	SS = 0;
 }
 
 
@@ -297,22 +314,22 @@ void SS_High ( void ) {
   volatile uint8 *pSfr;
   uint32 PinMask;
 
-  /* Pin mask = 1 shifted left by pin */
+  //Pin mask = 1 shifted left by pin 
 	uint32 PortPin = 0x04U;
 	//uint32 Action = PORT_ACTION_INPUT;
-  PinMask = 1U << (PortPin & 0x7U);
-
-  /* DATA pointer = address of P0_DATA + port * 8 */
+  // DATA pointer = address of P0_DATA + port * 8 
   pSfr = (&(PORT->P0_DATA.reg)) + ((PortPin >> 4U) << 3U);
 
-  /* Change DATA register according to Action */
-  __disable_irq();
+  // Change DATA register according to Action 
+  //__disable_irq();
 	
   pSfr = (&(PORT->P0_DIR.reg)) + ((PortPin >> 4U) << 3U);
   *pSfr &= (~PinMask);
 
-  __enable_irq();                         /* End of PORT_ChangePinAlt */
+  //__enable_irq();                          //End of PORT_ChangePinAlt 
+	
 	SS = 1;
+	
 } 
 
 /* Notes to Self:
