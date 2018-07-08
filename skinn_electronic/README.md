@@ -7,6 +7,6 @@ The LED controller, which are connected via daisy chain and the the Sensor contr
   <img src="your_relative_path_here_number_2_large_name" width="350" alt="Overview">
 </p>
 </br>
-<h3>LED controller<h3>
+<h3>LED controller</h3>
 The LED controller will cycle through every member of the daisy chain. To initialize this process there has to be high impulse one the first data1 connection which will lead to high output on the data2 line (synced with rising edge of the clk). 
 <h3>Sensor CU<h3>
