@@ -9,6 +9,9 @@ https://www.infineon.com/dgdl/Infineon-ePower_Tool_Chain_Setup_SDK-GS-v01_00-EN.
 
 # Pins
 MISO:	P0.4
+
 MOSI:	P0.2
+
 SCL:	P0.3
+
 CS:	P1.3
