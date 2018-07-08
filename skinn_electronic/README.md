@@ -3,7 +3,7 @@
 The task to controll/measure the leds and sensors of the skin, has been splited into two subtasks. 
 The LED controller, which are connected via daisy chain and the the Sensor controll unit. 
 <p align="center">
-  <img src="skinnElectronicOverview.jpg" width="350">
+  <img src="Capture.PNG" width="350">
   </br>
   Overview
 </p>
