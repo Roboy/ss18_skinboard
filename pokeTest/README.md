@@ -22,3 +22,7 @@ curl -L https://github.com/Roboy/ss18_skinboard/tree/master/pokeTest > project.t
 - connect to the printer
 - copy the gcode into the gcode viewer of the software 
 - run 
+
+
+Usefull URL:
+https://reprap.org/wiki/G-code
