@@ -1,6 +1,6 @@
 # ss18_skinboard
 There are two projects within the repository:
-  - Development of the motorboard code designed to work with 
+  - Development of the motorboard code designed to work with the [roboy motorboard](https://github.com/Roboy/custom_motorboards_infineon)
   - Develop "skin" for Roboy's lower arm that is capable of detecting and locating pressure.
   
  # Current Development
