@@ -1,4 +1,4 @@
-/*sha256=70302338C6B665A6E49B940FA1A04AC95F57D7BD17859FB8740E86AF71C77BC7*/
+/*sha256=1D80BA93D6AE88DA9AF42494C4A72DD6C19C6D7A4C44FFE9017C049C20AF3E32*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Wed Jun 20 22:15:00 2018
+created on:Sun Jul 8 14:26:51 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _SCU_DEFINES_H
@@ -187,7 +187,7 @@ created on:Wed Jun 20 22:15:00 2018
   #define SCU_INT_OSC_OVERRIDE_EN 0
 #endif
 
-/*SCU_MODIEN3: (0<<4)|0*/
+/*SCU_MODIEN3: 0|(0<<4)*/
 #ifndef SCU_MODIEN3
   #define SCU_MODIEN3 (0x0u)
 #endif

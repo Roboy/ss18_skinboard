@@ -156,7 +156,7 @@ int main(void)
 void Main_HandleSysTick(void)
 {
   /* Callback function executed every ms for speed control */
-  //Emo_CtrlSpeed();
+  Emo_CtrlSpeed();
 } /* End of Main_HandleSysTick */
 
 /*******************************************************************************
@@ -194,41 +194,10 @@ static void Main_lStopMotor(void)
   }  
 } /* End of Main_lStopMotor */
 
-void Poti_Handler(void)
-{
-	uint16 mV;
-	
-	/* read the value at Ch4 (Poti) in mV     */
-	// values between 0 and 5000 are possible 
-	/*
-	if (ADC1_GetChResult_mV(&mV, ADC1_CH4) == true)
-	{
-    Emo_SetRefSpeed(mV / 2); 
-    if (mV > 100)
-    {
-      Main_lStartMotor();
-    }
-    else
-    {
-      Main_lStopMotor();
-    }
-	} */
-}
-
 //Function to be called once the DMA transfers all 12 bytes. 
 void transmit_data ( void ) {
 	int j;
-	//process_data();
-	//try to change the data to be sent. 
-	/*for( i = 0; i < 12; i++ ) {
-		DMA_send_reg[ i ] = DMA_receive_reg[ i ]; 
-	}*/
-	//DMA_send_reg[0] = 0x8000;
 	
-	
-	//PORT_ChangePin( 0x04U, PORT_ACTION_INPUT );
-
-	//SSC1_SendWord( 0xF00D );
 	process_data();
 	for ( j = 0; j < DMA_CH2_NoOfTrans; j++) {
 		if (DMA_receive_reg[j] == 0x8000) {
@@ -240,22 +209,8 @@ void transmit_data ( void ) {
 
 //Basically want to use this one to keep my DMA in sync with  the frame. 
 void receive_data ( void ) {
+	
 	int j = 0;
-	//printf( "SPI Read: %x\n", DMA_receive_reg[count]);
-	/*DMA_receive_reg[ count ] = received;
-	if ( DMA_receive_reg[ 0 ] == 0x8000 ) {
-		count = 0;
-	}
-	if ( count == 12 ) {
-		DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans);
-		//DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans);
-	} else {
-		count++;
-	} */
-	//DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans - j);
-	//DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans - j);
-	
-	
 }
 
 /* Set all output values and process received data */
@@ -273,8 +228,7 @@ void process_data ( void ) {
 }
 
 /*	Called on the falling edge of the CS Pin. Used to set
-		the MISO pin to be an output
-*/
+		the MISO pin to be an output*/
 void SS_Low( void ) {
 	
   volatile uint8 *pSfr;
@@ -315,16 +269,12 @@ void SS_High ( void ) {
   pSfr = (&(PORT->P0_DIR.reg)) + ((PortPin >> 4U) << 3U);
   *pSfr &= (~PinMask);
 
-  __enable_irq();                          //End of PORT_ChangePinAlt 
+  __enable_irq();                         
+	//End of PORT_ChangePinAlt 
 	
 	SS = 1;
 	
 } 
 
-/* Notes to Self:
 
-I need to change the SSC channel to use 2 instead of 1.
-As this is required for the pin assignment chosen.
- 
-*/
 

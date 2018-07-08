@@ -1,4 +1,4 @@
-/*sha256=AB1494BB78524CD5874FB5C29439A4C7F925CA708BEC1E88965DFFDA31EB3017*/
+/*sha256=6FE12951B31B98528B2F24CC92DFD2ADE2D18577F9C713DDF9A1B7AB7F33029E*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Fri Jun 15 18:33:14 2018
+created on:Sun Jul 8 14:26:51 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _ISR_DEFINES_H
@@ -78,11 +78,11 @@ created on:Fri Jun 15 18:33:14 2018
 #endif
 
 #ifndef ADC1_CH4_CALLBACK
-#define ADC1_CH4_CALLBACK Poti_Handler
+#define ADC1_CH4_CALLBACK 
 #endif
 
 #ifndef ADC1_CH4_INT_EN
-  #define ADC1_CH4_INT_EN 1
+  #define ADC1_CH4_INT_EN 0
 #endif
 
 #ifndef ADC1_CH5_CALLBACK

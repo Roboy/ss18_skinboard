@@ -1,4 +1,4 @@
-/*sha256=E4E51A1AC86B3C2EAF96723117557205FC2164584DE35230CDAFB6CDF22EA464*/
+/*sha256=8824F4C71F15043E40BDEC2E284C652C375DD5B7C7AC735CB27D92B1609FAFBA*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Wed Jun 20 22:15:00 2018
+created on:Sun Jul 8 14:26:51 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _CONFIG_H
@@ -47,8 +47,8 @@ created on:Wed Jun 20 22:15:00 2018
 #define ADC1_CH2_INT_EN 0
 #define ADC1_CH3_CALLBACK place_your_function_call_back_here
 #define ADC1_CH3_INT_EN 0
-#define ADC1_CH4_CALLBACK Poti_Handler
-#define ADC1_CH4_INT_EN 1
+#define ADC1_CH4_CALLBACK 
+#define ADC1_CH4_INT_EN 0
 #define ADC1_CH5_CALLBACK place_your_function_call_back_here
 #define ADC1_CH5_INT_EN 0
 #define ADC1_CH6_CALLBACK place_your_function_call_back_here
@@ -64,10 +64,10 @@ created on:Wed Jun 20 22:15:00 2018
 #define ADC1_ESM (0x0u)
 #define ADC1_ESM_CALLBACK place_your_function_call_back_here
 #define ADC1_ESM_INT_EN 0
-/*ADC1_GLOBCTR: (3<<8)|0*/
-#define ADC1_GLOBCTR (0x300u)
-/*ADC1_IE: 0|(0<<1)|(0<<2)|(0<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<8)|(0<<9)*/
-#define ADC1_IE (0x10u)
+/*ADC1_GLOBCTR: (0<<8)|0*/
+#define ADC1_GLOBCTR (0x0u)
+/*ADC1_IE: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<8)|(0<<9)*/
+#define ADC1_IE (0x0u)
 /*ADC1_RES0: (0<<16)*/
 #define ADC1_RES0 (0x0u)
 /*ADC1_RES1: (0<<16)*/
@@ -946,7 +946,7 @@ created on:Wed Jun 20 22:15:00 2018
 #define SCU_ECC_RAM_DB_INT_EN 0
 /*SCU_EDCCON: 0|(0<<2)*/
 #define SCU_EDCCON (0x0u)
-/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(1<<2)|(1<<3)|(1<<4)|(1<<5)*/
+/*SCU_EXICON0: 0|(0<<1)|(1<<2)|(1<<3)|(1<<4)|(1<<5)|(0<<6)|(0<<7)*/
 #define SCU_EXICON0 (0x3Cu)
 #define SCU_EXINT0_FALLING_INT_EN 0
 #define SCU_EXINT0_RISING_INT_EN 0
@@ -969,7 +969,7 @@ created on:Wed Jun 20 22:15:00 2018
 #define SCU_MODIEN1 (0x0u)
 /*SCU_MODIEN2: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)|(0<<5)*/
 #define SCU_MODIEN2 (0x0u)
-/*SCU_MODIEN3: (0<<4)|0*/
+/*SCU_MODIEN3: 0|(0<<4)*/
 #define SCU_MODIEN3 (0x0u)
 /*SCU_MODIEN4: 0*/
 #define SCU_MODIEN4 (0x0u)

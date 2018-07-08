@@ -1,4 +1,4 @@
-/*sha256=826DF7257203C3385AABAC34189781A15AAC93DD8F3606EAED1D598AB15C5DD2*/
+/*sha256=BB5041C97485EE05DBCF5B1C56D3EABA48941B1268CE2C06F0BAB82D5857B710*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,14 +30,14 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Sun Jul 8 14:26:51 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _ADC1_DEFINES_H
 #define _ADC1_DEFINES_H
 
 #ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
+  #define IFXConfigWizard_Version 1.8.6
 #endif
 
 /* XML Version 1.3.0 */
@@ -64,14 +64,14 @@ created on:So Jul 9 21:20:52 2017
   #define ADC1_ESM (0x0u)
 #endif
 
-/*ADC1_GLOBCTR: (3<<8)|0*/
+/*ADC1_GLOBCTR: (0<<8)|0*/
 #ifndef ADC1_GLOBCTR
-  #define ADC1_GLOBCTR (0x300u)
+  #define ADC1_GLOBCTR (0x0u)
 #endif
 
-/*ADC1_IE: 0|(0<<1)|(0<<2)|(0<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<8)|(0<<9)*/
+/*ADC1_IE: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<8)|(0<<9)*/
 #ifndef ADC1_IE
-  #define ADC1_IE (0x10u)
+  #define ADC1_IE (0x0u)
 #endif
 
 /*ADC1_RES0: (0<<16)*/
