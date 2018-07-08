@@ -14,6 +14,11 @@ y_cnt=0
 x_pokes=2
 y_pokes=2
 
+#default init 
+#M103 firmware turn extruder off
+#M73 P0 (Set build percentage)
+#G21 Set Units to Millimeters
+#G90 Set to Absolute Positioning
 g_init="$(cat << EOF
 M103
 M73 P0
@@ -22,6 +27,11 @@ G90
 EOF
 )"
 
+#Get the zero parameter of the 3D printer
+#if an other Gcode interpreting maschine is used 
+#this part probably has to be changed
+#G161 Home axes to minimum
+#G162 Home axes to maximum
 g_homing=$(cat << EOM
 G162 X Y F2500
 G161 Z F1100
@@ -41,6 +51,7 @@ g_init_pos=$(cat << EOM
 G1 X$(($x_size+$x_offset)) Y$(($y_size+$y_offset)) Z10 F3300.0 
 EOM
 )
+
 
 poke_script=$(cat << EOM 
 G91 
@@ -66,7 +77,18 @@ M70 P5 (Roboy)
 M72 P1
 EOM
 )
+#M73 P100 ( End  build progress )
+#G0 Z150 ( Send Z axis to bottom of machine )
+#M18 ( Disable steppers )
+#M109 S0 T0 ( Cool down the build platform )
+#M104 S0 T0 ( Cool down the Right Extruder )
+#M104 S0 T1 ( Cool down the Left Extruder )
+#G162 X Y F2500 ( Home XY endstops )
+#M18 
+#M70 P5 (ROBOY)
+#M72 P1  
 
+#everthing now gets merged into the output gcode file
 echo "$g_init" > "$output_file_name" 
 echo "$g_homing" >> "$output_file_name" 
 echo "$g_safe_pos" >> "$output_file_name" 
