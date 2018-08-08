@@ -1,4 +1,4 @@
-/*sha256=2A768217366E206BAB2288B52C8E58976C4232D61685A03EE2706592772EB9AB*/
+/*sha256=37EAE22305EE4A2E2B4929A9923F32F3A3C6A4A6202694A7E593823C96AF76C5*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Tue Aug 7 23:19:47 2018
+created on:Wed Aug 8 14:22:11 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _CONFIG_H
@@ -626,7 +626,7 @@ created on:Tue Aug 7 23:19:47 2018
 #define EXINT0_FALLING_CALLBACK place_your_function_call_back_here
 #define EXINT0_RISING_CALLBACK place_your_function_call_back_here
 #define EXINT1_FALLING_CALLBACK SS_Low
-#define EXINT1_RISING_CALLBACK SS_High
+#define EXINT1_RISING_CALLBACK rotary_encoder
 #define EXINT2_FALLING_CALLBACK SS_Low
 #define EXINT2_RISING_CALLBACK SS_High
 /*GPT12E_CAPREL: 65535*/
@@ -920,8 +920,8 @@ created on:Tue Aug 7 23:19:47 2018
 #define SCU_BCON1 (0x0u)
 /*SCU_BCON2: (0<<1)|0*/
 #define SCU_BCON2 (0x0u)
-/*SCU_BDRV_IRQ_CTRL: (0<<16)|(0<<12)|(0<<10)|(0<<13)|(0<<11)|(0<<15)|(0<<14)|(0\
-<<2)|0|(0<<3)|(0<<1)|(0<<5)|(0<<4)|(0<<20)|(0<<19)|(0<<18)|(0<<17)*/
+/*SCU_BDRV_IRQ_CTRL: (0<<20)|(0<<19)|(0<<18)|(0<<17)|(0<<16)|(0<<12)|(0<<10)|(0\
+<<13)|(0<<11)|(0<<15)|(0<<14)|(0<<2)|0|(0<<3)|(0<<1)|(0<<5)|(0<<4)*/
 #define SCU_BDRV_IRQ_CTRL (0x0u)
 #define SCU_CFLASH_WPROT 0
 #define SCU_CFLASH_WPROT_PW 0
@@ -950,7 +950,7 @@ created on:Tue Aug 7 23:19:47 2018
 #define SCU_EXICON0 (0x3Cu)
 #define SCU_EXINT0_FALLING_INT_EN 0
 #define SCU_EXINT0_RISING_INT_EN 0
-#define SCU_EXINT1_FALLING_INT_EN 1
+#define SCU_EXINT1_FALLING_INT_EN 0
 #define SCU_EXINT1_RISING_INT_EN 1
 #define SCU_EXINT2_FALLING_INT_EN 1
 #define SCU_EXINT2_RISING_INT_EN 1
@@ -965,16 +965,16 @@ created on:Tue Aug 7 23:19:47 2018
 #define SCU_INT_OSC_OVERRIDE_EN 0
 /*SCU_LINST: (3<<1)|(0<<6)*/
 #define SCU_LINST (0x6u)
-/*SCU_MODIEN1: (0<<6)|(0<<7)|(0<<2)|(0<<1)|0*/
+/*SCU_MODIEN1: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)*/
 #define SCU_MODIEN1 (0x0u)
-/*SCU_MODIEN2: (0<<6)|(0<<7)|(0<<2)|(0<<1)|0|(1<<5)*/
+/*SCU_MODIEN2: (0<<2)|(0<<1)|0|(0<<6)|(0<<7)|(1<<5)*/
 #define SCU_MODIEN2 (0x20u)
 /*SCU_MODIEN3: (0<<4)|0*/
 #define SCU_MODIEN3 (0x0u)
-/*SCU_MODIEN4: 0*/
-#define SCU_MODIEN4 (0x0u)
-/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(1<<2)|(1<<4)*/
-#define SCU_MODPISEL (0x17u)
+/*SCU_MODIEN4: 1*/
+#define SCU_MODIEN4 (0x1u)
+/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(1<<4)*/
+#define SCU_MODPISEL (0x1Fu)
 /*SCU_MODPISEL1: (0<<6)|(0<<7)|0*/
 #define SCU_MODPISEL1 (0x0u)
 /*SCU_MODPISEL2: 1|(0<<4)|(0<<2)|(2<<6)*/
@@ -1037,7 +1037,7 @@ created on:Tue Aug 7 23:19:47 2018
 #define SSC1_TEMP_MOS 0
 #define SSC1_TEMP_MS 0
 #define SSC1_TEMP_SIS 0
-#define SSC1_TEMP_SOS 1
+#define SSC1_TEMP_SOS 0
 #define SSC1_TX_CALLBACK place_your_function_call_back_here
 #define SSC1_TX_INT_EN 0
 #define SSC2_AUTO_BAUDRATE 3

@@ -1,4 +1,4 @@
-/*sha256=E4264F445C902C495D3C2D5C888CC879FFD25CAAE697262342679E5A76892CDD*/
+/*sha256=E729B3EE3043BCE9CC4ED0F454FAD066E364EFEE65D92BA8EF13957189D65ECC*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Tue Aug 7 22:54:07 2018
+created on:Wed Aug 8 14:22:11 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _SSC_DEFINES_H
@@ -109,7 +109,7 @@ created on:Tue Aug 7 22:54:07 2018
 #endif
 
 #ifndef SSC1_TEMP_SOS
-  #define SSC1_TEMP_SOS 1
+  #define SSC1_TEMP_SOS 0
 #endif
 
 #ifndef SSC2_AUTO_BAUDRATE

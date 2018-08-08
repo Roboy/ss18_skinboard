@@ -1,4 +1,4 @@
-/*sha256=280087B2A1B078C553D0D5B04E59054BB51D495CFBAF19CD179CBCF4E45021CB*/
+/*sha256=5EC37B09FF213A320B64DA355A31E05C9C9A90E2FD378483586CA111FA17B834*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Tue Aug 7 22:55:48 2018
+created on:Wed Aug 8 14:22:11 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _SCU_DEFINES_H
@@ -150,7 +150,7 @@ created on:Tue Aug 7 22:55:48 2018
 #endif
 
 #ifndef SCU_EXINT1_FALLING_INT_EN
-  #define SCU_EXINT1_FALLING_INT_EN 1
+  #define SCU_EXINT1_FALLING_INT_EN 0
 #endif
 
 #ifndef SCU_EXINT1_RISING_INT_EN
@@ -192,14 +192,14 @@ created on:Tue Aug 7 22:55:48 2018
   #define SCU_MODIEN3 (0x0u)
 #endif
 
-/*SCU_MODIEN4: 0*/
+/*SCU_MODIEN4: 1*/
 #ifndef SCU_MODIEN4
-  #define SCU_MODIEN4 (0x0u)
+  #define SCU_MODIEN4 (0x1u)
 #endif
 
-/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(1<<2)|(1<<4)*/
+/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(3<<2)|(1<<4)*/
 #ifndef SCU_MODPISEL
-  #define SCU_MODPISEL (0x17u)
+  #define SCU_MODPISEL (0x1Fu)
 #endif
 
 /*SCU_MODPISEL1: (0<<6)|(0<<7)|0*/

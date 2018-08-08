@@ -1,4 +1,4 @@
-/*sha256=974DA0E8188D8E585DE5F61B3D1532F5EDA7E795490C1270144E99BD7B3A3DA2*/
+/*sha256=97E0ED51FE30E7C42E907E38896BFD1FB1A3EADA15D0E9EDF66D2EBD6DD5ABE4*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Tue Aug 7 23:19:47 2018
+created on:Wed Aug 8 13:52:31 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _ISR_DEFINES_H
@@ -686,7 +686,7 @@ created on:Tue Aug 7 23:19:47 2018
 #endif
 
 #ifndef EXINT1_RISING_CALLBACK
-#define EXINT1_RISING_CALLBACK SS_High
+#define EXINT1_RISING_CALLBACK rotary_encoder
 #endif
 
 #ifndef EXINT2_FALLING_CALLBACK

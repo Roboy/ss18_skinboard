@@ -52,19 +52,6 @@
 #include <eval_board.h>
 #include <stdio.h>
 
-
-
-volatile uint16_t DMA_send_reg[ 12 ];
-volatile uint16_t DMA_receive_reg[ 12 ];
-volatile int8_t ADC_Current;
-volatile int8_t ADC_Ao;
-volatile uint16_t received;
-int count = 0;
-volatile int SS = 0;
-
-volatile uint8 *pSfr;
-uint32 PinMask,input_mask;
-
 //Ptrs to the position of send data
 volatile uint16_t *velocity;
 volatile uint16_t *current;
@@ -74,10 +61,10 @@ volatile uint16_t *sensor2;
 volatile uint16_t *position;
 volatile uint16_t *error_flag;
 
-
 // Pointers to the positions of received data
 volatile uint16_t *message_type;
 volatile uint16_t *duty_cycle;
+
 /*******************************************************************************
 **                      Private Macro Definitions                             **
 *******************************************************************************/
@@ -85,15 +72,29 @@ volatile uint16_t *duty_cycle;
 /*******************************************************************************
 **                      Private Function Declarations                         **
 *******************************************************************************/
+
 static void Main_lStartMotor(void);
 static void Main_lStopMotor(void);
 void Poti_Handler(void);
-void process_data ( void );
-void SS_High ( void );
+void process_data( void );
+void SS_High( void );
 void SS_Low( void );
+void current_measured( void );
+
 /*******************************************************************************
 **                      Global Variable Definitions                           **
 *******************************************************************************/
+
+volatile uint16_t DMA_send_reg[ 12 ];
+volatile uint16_t DMA_receive_reg[ 12 ];
+volatile int8_t ADC_Current;
+volatile int8_t ADC_Ao;
+volatile uint16_t received;
+int count = 0;
+volatile int SS = 0;
+int motor_position = 0;
+volatile uint8 *pSfr;
+uint32 PinMask,input_mask;
 
 /*******************************************************************************
 **                      Private Variable Definitions                          **
@@ -120,18 +121,22 @@ int main(void)
   ** initialization of the hardware modules based on the configuration done   **
   ** by using the IFXConfigWizard                                             **
   *****************************************************************************/
-  TLE_Init();
-	
+	TLE_Init();
   Emo_Init(); //Initialize E-Motor application
 	DMA_Init(); // Initialise the DMA
 	DMA_Master_En(); // Starts the DMA
 	PORT_Init(); //Initialises the ports
-	PORT->P0_DIR.bit.P4 = 0;
+	
+	SS_High(); //Set MISO to be input. 
+	
+	//Initiate send and receive registers.
 	for( i = 0; i < DMA_CH2_NoOfTrans; i++ ) {
 		DMA_send_reg[ i ] = ( uint16_t ) ( 0x0000 );
 		DMA_receive_reg[ i ] = (uint16_t)( 0x0000 );
 	}
 	
+	//Direct appropriate data pointers to desired section of the frame.
+	//Send Data:
 	position = &DMA_send_reg[4];
 	velocity = &DMA_send_reg[6];
 	current = &DMA_send_reg[7];
@@ -140,21 +145,16 @@ int main(void)
 	sensor2 = &DMA_send_reg[10];
 	error_flag = &DMA_send_reg[11];
 	
+	//Receive Data
 	message_type = &DMA_receive_reg[0];
 	duty_cycle = &DMA_receive_reg[1];
 	
-	//initialise registor locations for input/output set of MISO
-
-
-
-	//According to examples the first word needs to be send manually. 
-	//This begins the SPI device triggering it's interrupt to ask for more bytes
-	Emo_SetRefSpeed(2000);
-	Main_lStartMotor();
+	//First SPI word must be send manually, SSC module then triggeres DMA for more.
 	DMA_Reset_Channel( DMA_CH2, ( DMA_CH3_NoOfTrans - 1 ));
 	DMA_Reset_Channel( DMA_CH3, DMA_CH2_NoOfTrans );
   DMA_receive_reg[0] = SSC1_SendWord(0xA000); 
-  while (1)
+	
+	while (1)
   { 
     /* Service watch-dog */
     WDT1_Service();
@@ -204,7 +204,7 @@ static void Main_lStopMotor(void)
 
 //Function to be called once the DMA transfers all 12 bytes. 
 void transmit_data ( void ) {
-	int j;
+	//int j;
 	DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans);
 	
 	process_data();
@@ -225,14 +225,15 @@ void receive_data ( void ) {
 
 /* Set all output values and process received data */
 void process_data ( void ) {
-	
-	*position = 0xCAFE;
+	//Maybe change this so it is triggered by SS_High. I.e. frame ended and data received.
+	//*position = 0xCAFE;
 	*velocity = Emo_GetAbsSpeed();
-	*current = 0xFADE;
-	*tendon_stretch = 0xFEED;
-	*sensor1 = 0x1001;
-	*sensor2 = 0x1002;
-	*error_flag = 0x1005;
+	
+	//*current = 0xFADE;
+	*tendon_stretch = 0xAAAA; //Still to do
+	*sensor1 = 0xFEED;
+	*sensor2 = 0xFADE;
+	*error_flag = 0xFACE;
 	
 	
 }
@@ -243,6 +244,8 @@ void SS_Low( void ) {
 	
 	//PORT_ChangePin(0x04U, PORT_ACTION_OUTPUT);
 	//SSC1->CON.PRG_bit.EN = 1;
+	
+	//Sets P0.4 to be an output.
 	PORT->P0_DIR.bit.P4 = 1;
 	
 	
@@ -254,8 +257,36 @@ void SS_Low( void ) {
 void SS_High ( void ) {
 	//SSC1->CON.PRG_bit.EN = 0;
   //PORT_ChangePin(0x04U, PORT_ACTION_INPUT);
+	
+	//Sets P0.4 to be input.
 	PORT->P0_DIR.bit.P4 = 0;
 } 
 
+/* 	Called through an interupt placed on pin P2.4. Triggered on the rissing edge.
+		Checks if encoder B is already high. If it is, then turning one way, if it isn't: Turning the other way. 
+		Directly updates the value stored in the send register.
+*/
+void rotary_encoder ( void ) {
+	//Triggered on the rising Edge of Enc_B ( P2.4 ). 
 
+	//Check status of Enc_A ( P2.0 )
+	if ( PORT->P2_DATA.bit.P0 ) {
+		
+		//If Enc_A is already on, it means a turn in 1 direction:
+		*position++;
+	
+	} else {
+		
+		*position--;
+	}
+}
 
+/*	Activated by the DMA when ADC_Current has been loaded with a new value.
+		Updates the value in the send register directly.
+*/
+void current_measured( void ) {
+	
+	//Used shunt resitor of value 0.005Ohm. Determine current through it.
+	*current = ADC_Current / 0.005;
+	
+}
