@@ -6,11 +6,11 @@
 .\objects\dma.o: .\RTE\Device\TLE9879QXA40\TLE987x.h
 .\objects\dma.o: .\RTE\Device\TLE9879QXA40\tle_device.h
 .\objects\dma.o: .\RTE\_TLE9879_EvalKit\RTE_Components.h
-.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\core_cm3.h
+.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h
 .\objects\dma.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_version.h
-.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_compiler.h
-.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
+.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\dma.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
 .\objects\dma.o: .\RTE\Device\TLE9879QXA40\system_TLE987x.h
 .\objects\dma.o: .\RTE\Device\TLE9879QXA40\bootrom.h
 .\objects\dma.o: .\RTE\Device\TLE9879QXA40\wdt1.h

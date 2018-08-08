@@ -1,4 +1,4 @@
-/*sha256=9B3452B4BF2C172A8CD05ECF09195B4F5E65B5376BDC3784455217F0AB390A7D*/
+/*sha256=41C8D74A9100C671E51FE6921D77D8BF166A7028506DF8B70123B095EC29D68C*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Sun Jul 8 14:26:51 2018
+created on:Tue Aug 7 23:19:47 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _DMA_DEFINES_H
@@ -480,11 +480,11 @@ created on:Sun Jul 8 14:26:51 2018
 #endif
 
 #ifndef DMA_CH5_DST
-#define DMA_CH5_DST enter destination reference
+#define DMA_CH5_DST ADC_Ao
 #endif
 
 #ifndef DMA_CH5_DST_EXT
-  #define DMA_CH5_DST_EXT 0
+  #define DMA_CH5_DST_EXT 1
 #endif
 
 #ifndef DMA_CH5_DST_PTR_OFFS
@@ -501,7 +501,7 @@ created on:Sun Jul 8 14:26:51 2018
 #endif
 
 #ifndef DMA_CH5_SIZE
-  #define DMA_CH5_SIZE 1
+  #define DMA_CH5_SIZE 0
 #endif
 
 #ifndef DMA_CH5_SRC
@@ -692,11 +692,11 @@ created on:Sun Jul 8 14:26:51 2018
 #endif
 
 #ifndef DMA_CH9_DST
-#define DMA_CH9_DST enter destination reference
+#define DMA_CH9_DST ADC_Current
 #endif
 
 #ifndef DMA_CH9_DST_EXT
-  #define DMA_CH9_DST_EXT 0
+  #define DMA_CH9_DST_EXT 1
 #endif
 
 #ifndef DMA_CH9_DST_PTR_OFFS
@@ -713,7 +713,7 @@ created on:Sun Jul 8 14:26:51 2018
 #endif
 
 #ifndef DMA_CH9_SIZE
-  #define DMA_CH9_SIZE 1
+  #define DMA_CH9_SIZE 0
 #endif
 
 #ifndef DMA_CH9_SRC
@@ -744,10 +744,10 @@ created on:Sun Jul 8 14:26:51 2018
   #define DMA_CH9_TRANS_MODE 0
 #endif
 
-/*DMA_EN: 0|(0<<1)|(1<<2)|(1<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<<9)|(0<<\
+/*DMA_EN: 0|(0<<1)|(1<<2)|(1<<3)|(0<<4)|(1<<5)|(0<<6)|(0<<7)|(0<<8)|(1<<9)|(0<<\
 10)|(0<<11)|(0<<12)*/
 #ifndef DMA_EN
-  #define DMA_EN (0xCu)
+  #define DMA_EN (0x22Cu)
 #endif
 
 

@@ -1,4 +1,4 @@
-/*sha256=03BEC5A390808010702347457BDC3CDBE3A12628E7CA28F4B407AF7C774A2C9B*/
+/*sha256=BCBD6E767A6C2B2BA1B2465BA107042FC70D88F9E05D217956C3DA88094B5B72*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Sun Jul 8 14:26:51 2018
+created on:Tue Aug 7 23:06:08 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _PORT_DEFINES_H
@@ -100,14 +100,14 @@ created on:Sun Jul 8 14:26:51 2018
   #define PORT_P0_DATA (0x0u)
 #endif
 
-/*PORT_P0_DIR: 0|(0<<1)|(0<<2)|(0<<3)|(1<<4)*/
+/*PORT_P0_DIR: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
 #ifndef PORT_P0_DIR
-  #define PORT_P0_DIR (0x10u)
+  #define PORT_P0_DIR (0x0u)
 #endif
 
-/*PORT_P0_OD: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
+/*PORT_P0_OD: 0|(0<<1)|(0<<2)|(0<<3)|(1<<4)*/
 #ifndef PORT_P0_OD
-  #define PORT_P0_OD (0x0u)
+  #define PORT_P0_OD (0x10u)
 #endif
 
 /*PORT_P1_0_ALT: 0*/
@@ -130,9 +130,9 @@ created on:Sun Jul 8 14:26:51 2018
   #define PORT_P1_1_PUD (0x0u)
 #endif
 
-/*PORT_P1_2_ALT: 0*/
+/*PORT_P1_2_ALT: 1*/
 #ifndef PORT_P1_2_ALT
-  #define PORT_P1_2_ALT (0x0u)
+  #define PORT_P1_2_ALT (0x1u)
 #endif
 
 /*PORT_P1_2_PUD: 3*/
@@ -165,9 +165,9 @@ created on:Sun Jul 8 14:26:51 2018
   #define PORT_P1_DATA (0x0u)
 #endif
 
-/*PORT_P1_DIR: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/
+/*PORT_P1_DIR: 0|(0<<1)|(1<<2)|(0<<3)|(0<<4)*/
 #ifndef PORT_P1_DIR
-  #define PORT_P1_DIR (0x0u)
+  #define PORT_P1_DIR (0x4u)
 #endif
 
 /*PORT_P1_OD: (0<<1)|(0<<2)|(0<<3)|(0<<4)*/
@@ -175,9 +175,9 @@ created on:Sun Jul 8 14:26:51 2018
   #define PORT_P1_OD (0x0u)
 #endif
 
-/*PORT_P2_0_PUD: 0*/
+/*PORT_P2_0_PUD: 2*/
 #ifndef PORT_P2_0_PUD
-  #define PORT_P2_0_PUD (0x0u)
+  #define PORT_P2_0_PUD (0x2u)
 #endif
 
 /*PORT_P2_1_PUD: 0*/
@@ -195,9 +195,9 @@ created on:Sun Jul 8 14:26:51 2018
   #define PORT_P2_3_PUD (0x0u)
 #endif
 
-/*PORT_P2_4_PUD: 0*/
+/*PORT_P2_4_PUD: 2*/
 #ifndef PORT_P2_4_PUD
-  #define PORT_P2_4_PUD (0x0u)
+  #define PORT_P2_4_PUD (0x2u)
 #endif
 
 /*PORT_P2_5_PUD: 0*/

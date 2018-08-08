@@ -1,4 +1,4 @@
-/*sha256=1D80BA93D6AE88DA9AF42494C4A72DD6C19C6D7A4C44FFE9017C049C20AF3E32*/
+/*sha256=280087B2A1B078C553D0D5B04E59054BB51D495CFBAF19CD179CBCF4E45021CB*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Sun Jul 8 14:26:51 2018
+created on:Tue Aug 7 22:55:48 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _SCU_DEFINES_H
@@ -154,15 +154,15 @@ created on:Sun Jul 8 14:26:51 2018
 #endif
 
 #ifndef SCU_EXINT1_RISING_INT_EN
-  #define SCU_EXINT1_RISING_INT_EN 0
+  #define SCU_EXINT1_RISING_INT_EN 1
 #endif
 
 #ifndef SCU_EXINT2_FALLING_INT_EN
-  #define SCU_EXINT2_FALLING_INT_EN 0
+  #define SCU_EXINT2_FALLING_INT_EN 1
 #endif
 
 #ifndef SCU_EXINT2_RISING_INT_EN
-  #define SCU_EXINT2_RISING_INT_EN 0
+  #define SCU_EXINT2_RISING_INT_EN 1
 #endif
 
 #ifndef SCU_FSYS
@@ -187,7 +187,7 @@ created on:Sun Jul 8 14:26:51 2018
   #define SCU_INT_OSC_OVERRIDE_EN 0
 #endif
 
-/*SCU_MODIEN3: 0|(0<<4)*/
+/*SCU_MODIEN3: (0<<4)|0*/
 #ifndef SCU_MODIEN3
   #define SCU_MODIEN3 (0x0u)
 #endif
@@ -197,9 +197,9 @@ created on:Sun Jul 8 14:26:51 2018
   #define SCU_MODIEN4 (0x0u)
 #endif
 
-/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(1<<2)|(3<<4)*/
+/*SCU_MODPISEL: (0<<7)|(0<<6)|3|(1<<2)|(1<<4)*/
 #ifndef SCU_MODPISEL
-  #define SCU_MODPISEL (0x37u)
+  #define SCU_MODPISEL (0x17u)
 #endif
 
 /*SCU_MODPISEL1: (0<<6)|(0<<7)|0*/

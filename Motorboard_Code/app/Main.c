@@ -56,9 +56,14 @@
 
 volatile uint16_t DMA_send_reg[ 12 ];
 volatile uint16_t DMA_receive_reg[ 12 ];
+volatile int8_t ADC_Current;
+volatile int8_t ADC_Ao;
 volatile uint16_t received;
 int count = 0;
 volatile int SS = 0;
+
+volatile uint8 *pSfr;
+uint32 PinMask,input_mask;
 
 //Ptrs to the position of send data
 volatile uint16_t *velocity;
@@ -121,7 +126,7 @@ int main(void)
 	DMA_Init(); // Initialise the DMA
 	DMA_Master_En(); // Starts the DMA
 	PORT_Init(); //Initialises the ports
-	
+	PORT->P0_DIR.bit.P4 = 0;
 	for( i = 0; i < DMA_CH2_NoOfTrans; i++ ) {
 		DMA_send_reg[ i ] = ( uint16_t ) ( 0x0000 );
 		DMA_receive_reg[ i ] = (uint16_t)( 0x0000 );
@@ -138,14 +143,17 @@ int main(void)
 	message_type = &DMA_receive_reg[0];
 	duty_cycle = &DMA_receive_reg[1];
 	
+	//initialise registor locations for input/output set of MISO
+
+
+
 	//According to examples the first word needs to be send manually. 
-	//This begins the SPI device triggering it's interrupt to ask for more bytes.
+	//This begins the SPI device triggering it's interrupt to ask for more bytes
 	Emo_SetRefSpeed(2000);
 	Main_lStartMotor();
 	DMA_Reset_Channel( DMA_CH2, ( DMA_CH3_NoOfTrans - 1 ));
 	DMA_Reset_Channel( DMA_CH3, DMA_CH2_NoOfTrans );
-  DMA_receive_reg[0] = SSC1_SendWord(0x0000); 
-	
+  DMA_receive_reg[0] = SSC1_SendWord(0xA000); 
   while (1)
   { 
     /* Service watch-dog */
@@ -197,20 +205,22 @@ static void Main_lStopMotor(void)
 //Function to be called once the DMA transfers all 12 bytes. 
 void transmit_data ( void ) {
 	int j;
+	DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans);
 	
 	process_data();
-	for ( j = 0; j < DMA_CH2_NoOfTrans; j++) {
+	/*for ( j = 0; j < DMA_CH2_NoOfTrans; j++) {
 		if (DMA_receive_reg[j] == 0x8000) {
 				DMA_Reset_Channel(DMA_CH2, DMA_CH2_NoOfTrans - j);
 				DMA_Reset_Channel(DMA_CH3, DMA_CH3_NoOfTrans - j);
 		}
-	}
+	}*/
 }
 
 //Basically want to use this one to keep my DMA in sync with  the frame. 
 void receive_data ( void ) {
 	
 	int j = 0;
+	DMA_Reset_Channel(DMA_CH3, DMA_CH2_NoOfTrans);
 }
 
 /* Set all output values and process received data */
@@ -231,49 +241,20 @@ void process_data ( void ) {
 		the MISO pin to be an output*/
 void SS_Low( void ) {
 	
-  volatile uint8 *pSfr;
-  uint32 PinMask;
-	uint32 PortPin = 0x04U;
-
-  //Pin mask = 1 shifted left by pin
-  PinMask = 1U << (PortPin & 0x7U);
-
-  //DATA pointer = address of P0_DATA + port * 8 
-  pSfr = (&(PORT->P0_DATA.reg)) + ((PortPin >> 4U) << 3U);
-
-  //Change DATA register according to Action 
-  __disable_irq();
-  
-	pSfr = (&(PORT->P0_DIR.reg)) + ((PortPin >> 4U) << 3U);
-  *pSfr |= PinMask;
-  
-	__enable_irq();
+	//PORT_ChangePin(0x04U, PORT_ACTION_OUTPUT);
+	//SSC1->CON.PRG_bit.EN = 1;
+	PORT->P0_DIR.bit.P4 = 1;
 	
-	SS = 0;
+	
 }
 
 /*	Called on the rising edge of the CS Pin. Used to set
 		the MISO pin to be an input
 */
 void SS_High ( void ) {
-	
-  volatile uint8 *pSfr;
-  uint32 PinMask;
-
-	uint32 PortPin = 0x04U;
-  pSfr = (&(PORT->P0_DATA.reg)) + ((PortPin >> 4U) << 3U);
-
-  // Change DATA register according to Action 
-  __disable_irq();
-	
-  pSfr = (&(PORT->P0_DIR.reg)) + ((PortPin >> 4U) << 3U);
-  *pSfr &= (~PinMask);
-
-  __enable_irq();                         
-	//End of PORT_ChangePinAlt 
-	
-	SS = 1;
-	
+	//SSC1->CON.PRG_bit.EN = 0;
+  //PORT_ChangePin(0x04U, PORT_ACTION_INPUT);
+	PORT->P0_DIR.bit.P4 = 0;
 } 
 
 

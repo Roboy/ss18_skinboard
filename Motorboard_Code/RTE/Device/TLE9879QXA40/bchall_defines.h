@@ -1,4 +1,4 @@
-/*sha256=4526065D940D2201C414902C31E267ADAA8E446FA3878F6792C024B4495D3216*/
+/*sha256=4E8B98E4F7671909927F96178229F733B2AF8DADAFCFE9A888F493A588248F4E*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Mon May 28 16:21:40 2018
+created on:Tue Aug 7 22:54:07 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _BCHALL_DEFINES_H
@@ -70,11 +70,11 @@ created on:Mon May 28 16:21:40 2018
 #endif
 
 #ifndef BCHALL_INPUT_B
-  #define BCHALL_INPUT_B 2
+  #define BCHALL_INPUT_B 1
 #endif
 
 #ifndef BCHALL_INPUT_C
-  #define BCHALL_INPUT_C 1
+  #define BCHALL_INPUT_C 2
 #endif
 
 #ifndef BCHALL_OFFSET_60DEGREE_EN

@@ -333,10 +333,10 @@ ARM Macro Assembler    Page 6
 Command Line: --debug --xref --cpreproc --diag_suppress=9931 --cpu=Cortex-M3 --
 apcs=interwork --depend=.\objects\startup_tle987x.d -o.\objects\startup_tle987x
 .o -I.\RTE\Device\TLE9879QXA40 -I.\RTE\_TLE9879_EvalKit -IC:\Keil_v5\ARM\PACK\A
-RM\CMSIS\5.3.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.3.2\D
-evice\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 5
-25" --predefine="_RTE_ SETA 1" --predefine="TLE9879QXA40 SETA 1" --list=.\listi
-ngs\startup_tle987x.lst RTE\Device\TLE9879QXA40\startup_tle987x.s
+RM\CMSIS\5.4.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Infineon\TLE987x_DFP\1.
+3.2\Device\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION S
+ETA 525" --predefine="_RTE_ SETA 1" --predefine="TLE9879QXA40 SETA 1" --list=.\
+listings\startup_tle987x.lst RTE\Device\TLE9879QXA40\startup_tle987x.s
 
 
 
