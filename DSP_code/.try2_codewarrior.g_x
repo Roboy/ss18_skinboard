@@ -1,0 +1,62 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Compiler_SearchUserPaths</name>
+      <values lines_count="2">
+        <Line>"${ProjDirPath}/Sources"</Line>
+        <Line>"${ProjDirPath}/Generated_Code"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="Generated_Code/AppConfig.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757009" FileType="45637" />
+      <File Name="Generated_Code/mem.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757019" FileType="45637" CompNumb="9" />
+      <File Name="Project_Settings/Linker_Files/FLASH_SDM.cmd" FileDate="2018-08-12, 15:32:37" FileAge="1534080757159" FileType="8" CompNumb="2" />
+      <File Name="Sources/main.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757119" FileType="128" />
+      <File Name="Generated_Code/memreadp16.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757065" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/SS1.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757108" FileType="45637" CompNumb="6" />
+      <File Name="Generated_Code/mem.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757028" FileType="45637" CompNumb="9" />
+      <File Name="Documentation/try2_codewarrior_Settings.xml" FileDate="2018-08-12, 15:32:37" FileAge="1534080757304" FileType="3072" />
+      <File Name="Generated_Code/mempx.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757046" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/memcpy.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757057" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/memsetp.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757063" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/SS1.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757101" FileType="45637" CompNumb="6" />
+      <File Name="Generated_Code/memreadp32.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757068" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/assert.h" FileDate="2018-08-12, 15:17:58" FileAge="1534079878714" FileType="45637" />
+      <File Name="Generated_Code/memwritep16.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757070" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/arch.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757033" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/Vectors.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757181" FileType="45637" CompNumb="2" />
+      <File Name="Documentation/doxygen/RoutingReport.txt" FileDate="2018-08-12, 15:17:58" FileAge="1534079878647" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2018-08-12, 15:17:58" FileAge="1534079878677" FileType="45637" CompNumb="2" />
+      <File Name="Documentation/doxygen/pex.css" FileDate="2018-08-12, 15:17:58" FileAge="1534079878465" FileType="16384" CompNumb="2" />
+      <File Name="Generated_Code/memwritep32.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757074" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/memcopyxtop.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757051" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757142" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/configdefines.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757079" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/portasm.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757036" FileType="45637" CompNumb="9" />
+      <File Name="Documentation/try2_codewarrior.txt" FileDate="2018-08-12, 15:32:37" FileAge="1534080757330" FileType="3072" />
+      <File Name="Documentation/doxygen/pex.doxyfile" FileDate="2018-08-12, 15:17:58" FileAge="1534079878643" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/MEM1.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757095" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/archGetLimitBit.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757042" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/memcopyptox.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757049" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/MEM1.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757087" FileType="45637" CompNumb="9" />
+      <File Name="Project_Settings/Startup_Code/56F80xx_init.asm" FileDate="2018-08-12, 15:17:58" FileAge="1534079878554" FileType="16384" CompNumb="2" />
+      <File Name="Generated_Code/memtarget.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757076" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/port.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757031" FileType="45637" CompNumb="9" />
+      <File Name="Generated_Code/types.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757044" FileType="45637" CompNumb="9" />
+      <File Name="Documentation/doxygen/try2_codewarrior.txt" FileDate="2018-08-12, 15:17:58" FileAge="1534079878651" FileType="45637" CompNumb="2" />
+      <File Name="Generated_Code/memcopyptop.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757054" FileType="45637" CompNumb="9" />
+      <File Name="Sources/Events.h" FileDate="2018-08-12, 15:32:37" FileAge="1534080757192" FileType="131328" />
+      <File Name="Generated_Code/IO_Map.h" FileDate="2018-08-12, 15:17:58" FileAge="1534079878690" FileType="45637" />
+      <File Name="Generated_Code/PE_Const.h" FileDate="2018-08-12, 15:17:58" FileAge="1534079878695" FileType="45637" />
+      <File Name="Generated_Code/memset.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757060" FileType="45637" CompNumb="9" />
+      <File Name="Sources/Events.c" FileDate="2018-08-12, 15:32:37" FileAge="1534080757198" FileType="131328" />
+      <File Name="Generated_Code/PE_Types.h" FileDate="2018-08-12, 15:17:58" FileAge="1534079878710" FileType="45637" />
+      <File Name="Generated_Code/PE_Error.h" FileDate="2018-08-12, 15:17:58" FileAge="1534079878699" FileType="45637" />
+      <File Name="Documentation/try2_codewarrior_SIGNALS.txt" FileDate="2018-08-12, 15:32:37" FileAge="1534080757227" FileType="3072" />
+      <File Name="Generated_Code/archgetsetsaturationmode.asm" FileDate="2018-08-12, 15:32:37" FileAge="1534080757038" FileType="45637" CompNumb="9" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>2</CodeGenReference>
+</CodeGenerationInfo>
