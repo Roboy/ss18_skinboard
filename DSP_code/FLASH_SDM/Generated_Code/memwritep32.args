@@ -1,0 +1,9 @@
+-msgstyle parseable
+-debug
+-nosyspath
+-i
+"$(ProjDirPath)/Project_Headers"
+-i
+"$(ProjDirPath)/Generated_Code"
+-i
+"$(ProjDirPath)/Sources"

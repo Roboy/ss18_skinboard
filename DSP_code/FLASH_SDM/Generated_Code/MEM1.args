@@ -1,0 +1,28 @@
+-msgstyle parseable
+-g
+-i
+"$(ProjDirPath)/Project_Headers"
+-i
+"$(MCUToolsBaseDirEnv)/M56800E Support/runtime_56800E/include"
+-i
+"$(ProjDirPath)/Generated_Code"
+-i
+"$(ProjDirPath)/Sources"
+-I-
+-i
+"$(MCUToolsBaseDirEnv)/M56800E Support/msl/MSL_C/MSL_Common/Include"
+-I-
+-i
+"$(MCUToolsBaseDirEnv)/M56800E Support/msl/MSL_C/DSP_56800E/prefix"
+-I-
+-ir
+"$(MCUToolsBaseDirEnv)/M56800E Support"
+-w illpragmas
+-w possible
+-w extended
+-w extracomma
+-w emptydecl
+-w structclass
+-w notinlined
+-opt speed
+-requireprotos
