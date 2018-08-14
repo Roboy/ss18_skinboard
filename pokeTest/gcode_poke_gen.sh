@@ -7,6 +7,9 @@ y_size=100
 x_offset=$((-x_size/4))
 y_offset=$((-y_size/4))
 dy_poke=1.5
+y_off=-10
+##y_height has to be minus value
+y_height=-76
 
 x_cnt=0
 y_cnt=0
@@ -23,7 +26,7 @@ EOF
 )"
 
 g_homing=$(cat << EOM
-G162 X Y F2500
+G162 X Y F1500
 G1 Z0
 M132 X Y Z A B
 EOM
@@ -35,7 +38,7 @@ EOM
 )
 
 g_init_pos=$(cat << EOM
-G1 X$(($x_size+$x_offset)) Y$(($y_size+$y_offset)) Z-10 F3300.0 
+G1 X$(($x_size+$x_offset)) Y$(($y_size+$y_offset)) Z$y_height F3300.0 
 EOM
 )
 
@@ -43,7 +46,7 @@ poke_script=$(cat << EOM
 G91 
 G1 F90
 G1 Z-$dy_poke
-G4 P1000
+G4 P2000
 G1 Z+$dy_poke
 G4 P1000
 G90
@@ -57,7 +60,7 @@ M18
 M109 S0 T0
 M104 S0 T0
 M104 S0 T1
-G162 X Y F2500
+G162 X Y F1500
 M18
 M70 P5 (Roboy)
 M72 P1
@@ -68,9 +71,9 @@ echo "$g_homing" >> "$output_file_name"
 echo "$g_init_pos" >> "$output_file_name" 
 for (( x_cnt=0; x_cnt <=x_size; x_cnt=x_cnt+x_size/x_pokes ))
 do
-   for (( y_cnt=0; y_cnt <= y_size; y_cnt=y_cnt+y_size/y_pokes ))
+   for (( y_cnt=y_off; y_cnt <= y_size+y_off; y_cnt=y_cnt+y_size/y_pokes ))
    do
-      echo "G1 X$(($x_offset+$x_cnt)) Y$(($y_offset+$y_cnt)) Z-10 F3300.0" >> "$output_file_name" 
+      echo "G1 X$(($x_offset+$x_cnt)) Y$(($y_offset+$y_cnt)) Z$y_height F2000.0" >> "$output_file_name" 
    
    echo "$poke_script" >> "$output_file_name" 
    done
