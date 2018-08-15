@@ -1,4 +1,4 @@
-/*sha256=F70863F9E48FCEB09E2BCF215D0EC02981A1400E056C8DDFB416F02300185706*/
+/*sha256=CC6645840A10840D1E26E84CF56F90D0FDE27A0C7C47EDEC381563F23BA83761*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,14 +30,14 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Wed Aug 15 13:15:20 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _UART_DEFINES_H
 #define _UART_DEFINES_H
 
 #ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
+  #define IFXConfigWizard_Version 1.8.6
 #endif
 
 /* XML Version 1.3.0 */

@@ -1,4 +1,4 @@
-/*sha256=96DF75AAF5FEAF905DDD594EF7506BD654F674FAEFB22A2E21A929FE3650D298*/
+/*sha256=ABFAD7C160DC9FDD154C1F60F66C9F4C5A80DC58432B7023FA47B6E2DC21E303*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,7 +30,7 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:Mon Aug 13 16:34:04 2018
+created on:Wed Aug 15 13:36:50 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _BCHALL_DEFINES_H
@@ -82,7 +82,7 @@ created on:Mon Aug 13 16:34:04 2018
 #endif
 
 #ifndef BCHALL_POLE_PAIRS
-  #define BCHALL_POLE_PAIRS 4
+  #define BCHALL_POLE_PAIRS 1
 #endif
 
 #ifndef BCHALL_PWM_FREQ

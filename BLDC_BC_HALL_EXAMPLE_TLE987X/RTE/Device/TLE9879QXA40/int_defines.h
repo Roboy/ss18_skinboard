@@ -1,4 +1,4 @@
-/*sha256=8B8DE6D3F7E71E425A1EE9ECB0D3B63A300ECF6B596EC49C11FEC8CFEFABD356*/
+/*sha256=C246E504F9C3E004111B7E226753CED3BFAA723F8948670734C272A7DE8EA4BD*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,14 +30,14 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Tue Aug 14 22:15:51 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _INT_DEFINES_H
 #define _INT_DEFINES_H
 
 #ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
+  #define IFXConfigWizard_Version 1.8.6
 #endif
 
 /* XML Version 1.3.0 */
@@ -77,10 +77,10 @@ created on:So Jul 9 21:20:52 2017
   #define CPU_NVIC_IPR3 (0x0u)
 #endif
 
-/*CPU_NVIC_ISER0: 0|(0<<1)|(0<<2)|(1<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<\
+/*CPU_NVIC_ISER0: 0|(0<<1)|(0<<2)|(0<<3)|(1<<4)|(0<<5)|(0<<6)|(0<<7)|(0<<8)|(0<\
 <9)|(0<<10)|(0<<11)|(0<<12)|(0<<13)|(0<<14)|(0<<15)*/
 #ifndef CPU_NVIC_ISER0
-  #define CPU_NVIC_ISER0 (0x18u)
+  #define CPU_NVIC_ISER0 (0x10u)
 #endif
 
 /*CPU_NVIC_SHPR3: (0<<28)*/
@@ -138,7 +138,7 @@ created on:So Jul 9 21:20:52 2017
   #define SCU_EDCCON (0x0u)
 #endif
 
-/*SCU_EXICON0: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)|(0<<6)|(0<<7)*/
+/*SCU_EXICON0: (0<<6)|(0<<7)|0|(0<<1)|(0<<2)|(0<<3)|(0<<4)|(0<<5)*/
 #ifndef SCU_EXICON0
   #define SCU_EXICON0 (0x0u)
 #endif

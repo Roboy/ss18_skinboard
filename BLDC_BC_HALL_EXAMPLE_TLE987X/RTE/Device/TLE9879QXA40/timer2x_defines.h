@@ -1,4 +1,4 @@
-/*sha256=3065B4041845791C6BDFBB7FD41C115C2D8F77EB88D6B9B0DC08F9A41A3DDEBF*/
+/*sha256=2518BD80E396FFA3D8F82ECD34FDFE0D87587A7E2F040FE9B9CCAF120E28E23E*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,14 +30,14 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Wed Aug 15 13:15:20 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _TIMER2X_DEFINES_H
 #define _TIMER2X_DEFINES_H
 
 #ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
+  #define IFXConfigWizard_Version 1.8.6
 #endif
 
 /* XML Version 1.3.0 */

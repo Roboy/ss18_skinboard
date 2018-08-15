@@ -1,4 +1,4 @@
-/*sha256=8558E14B4345C83F8ABA53DCFB3014A4EE4A0A33A916F9F1CC34982C5E7CD0F0*/
+/*sha256=343DE65273F652E029C9807753599D1CABC4353A59950093623410111CDE2C79*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,14 +30,14 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Wed Aug 15 13:49:27 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _PMU_DEFINES_H
 #define _PMU_DEFINES_H
 
 #ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
+  #define IFXConfigWizard_Version 1.8.6
 #endif
 
 /* XML Version 1.3.0 */
@@ -137,9 +137,9 @@ created on:So Jul 9 21:20:52 2017
   #define PMU_STOP_MODE 0
 #endif
 
-/*PMU_VDDEXT_CTRL: 0|(0<<1)|(0<<2)*/
+/*PMU_VDDEXT_CTRL: 1|(0<<1)|(0<<2)*/
 #ifndef PMU_VDDEXT_CTRL
-  #define PMU_VDDEXT_CTRL (0x0u)
+  #define PMU_VDDEXT_CTRL (0x1u)
 #endif
 
 /*PMU_WAKE_CONF_GPIO0_CYC: 0|(0<<1)|(0<<2)|(0<<3)|(0<<4)*/

@@ -93,6 +93,7 @@ int main(void)
   Emo_Init();
 	Emo_SetRefSpeed(1000);
 	Main_lStartMotor();
+	
   while (1)
   { 
     /* Service watch-dog */
@@ -149,7 +150,8 @@ void Poti_Handler(void)
 	 * values between 0 and 5000 are possible */
 	if (ADC1_GetChResult_mV(&mV, ADC1_CH4) == true)
 	{
-    Emo_SetRefSpeed(500);
+    
+		Emo_SetRefSpeed(500);
     if (200 > 100)
     {
       Main_lStartMotor();

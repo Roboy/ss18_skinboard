@@ -466,13 +466,13 @@ Image Symbol Table
     i.GPT12E_Init                            0x11000634   Section        0  gpt12e.o(i.GPT12E_Init)
     i.HardFault_Handler                      0x11000664   Section        0  isr.o(i.HardFault_Handler)
     i.INT_Init                               0x11000668   Section        0  int.o(i.INT_Init)
-    i.Main_HandleSysTick                     0x110006e8   Section        0  main.o(i.Main_HandleSysTick)
-    i.Main_lStartMotor                       0x110006ec   Section        0  main.o(i.Main_lStartMotor)
-    Main_lStartMotor                         0x110006ed   Thumb Code     4  main.o(i.Main_lStartMotor)
-    i.Mat_ExeSimpleLp                        0x110006f0   Section        0  emoccu.o(i.Mat_ExeSimpleLp)
-    Mat_ExeSimpleLp                          0x110006f1   Thumb Code    34  emoccu.o(i.Mat_ExeSimpleLp)
-    i.MemManage_Handler                      0x11000712   Section        0  isr.o(i.MemManage_Handler)
-    i.PORT_Init                              0x11000714   Section        0  port.o(i.PORT_Init)
+    i.Main_HandleSysTick                     0x110006e4   Section        0  main.o(i.Main_HandleSysTick)
+    i.Main_lStartMotor                       0x110006e8   Section        0  main.o(i.Main_lStartMotor)
+    Main_lStartMotor                         0x110006e9   Thumb Code     4  main.o(i.Main_lStartMotor)
+    i.Mat_ExeSimpleLp                        0x110006ec   Section        0  emoccu.o(i.Mat_ExeSimpleLp)
+    Mat_ExeSimpleLp                          0x110006ed   Thumb Code    34  emoccu.o(i.Mat_ExeSimpleLp)
+    i.MemManage_Handler                      0x1100070e   Section        0  isr.o(i.MemManage_Handler)
+    i.PORT_Init                              0x11000710   Section        0  port.o(i.PORT_Init)
     i.Poti_Handler                           0x1100075c   Section        0  main.o(i.Poti_Handler)
     i.SCU_ClkInit                            0x11000798   Section        0  scu.o(i.SCU_ClkInit)
     i.SCU_Init                               0x110008a8   Section        0  scu.o(i.SCU_Init)
@@ -633,10 +633,10 @@ Image Symbol Table
     Emo_StartMotor                           0x110005f5   Thumb Code    54  emo.o(i.Emo_StartMotor)
     GPT12E_Init                              0x11000635   Thumb Code    44  gpt12e.o(i.GPT12E_Init)
     HardFault_Handler                        0x11000665   Thumb Code     2  isr.o(i.HardFault_Handler)
-    INT_Init                                 0x11000669   Thumb Code   110  int.o(i.INT_Init)
-    Main_HandleSysTick                       0x110006e9   Thumb Code     4  main.o(i.Main_HandleSysTick)
-    MemManage_Handler                        0x11000713   Thumb Code     2  isr.o(i.MemManage_Handler)
-    PORT_Init                                0x11000715   Thumb Code    66  port.o(i.PORT_Init)
+    INT_Init                                 0x11000669   Thumb Code   108  int.o(i.INT_Init)
+    Main_HandleSysTick                       0x110006e5   Thumb Code     4  main.o(i.Main_HandleSysTick)
+    MemManage_Handler                        0x1100070f   Thumb Code     2  isr.o(i.MemManage_Handler)
+    PORT_Init                                0x11000711   Thumb Code    70  port.o(i.PORT_Init)
     Poti_Handler                             0x1100075d   Thumb Code    56  main.o(i.Poti_Handler)
     SCU_ClkInit                              0x11000799   Thumb Code   272  scu.o(i.SCU_ClkInit)
     SCU_Init                                 0x110008a9   Thumb Code    50  scu.o(i.SCU_Init)
@@ -749,12 +749,12 @@ Memory Map of the image
     0x11000634   0x11000634   0x00000030   Code   RO          545    i.GPT12E_Init       gpt12e.o
     0x11000664   0x11000664   0x00000002   Code   RO          608    i.HardFault_Handler  isr.o
     0x11000666   0x11000666   0x00000002   PAD
-    0x11000668   0x11000668   0x00000080   Code   RO          581    i.INT_Init          int.o
-    0x110006e8   0x110006e8   0x00000004   Code   RO            4    i.Main_HandleSysTick  main.o
-    0x110006ec   0x110006ec   0x00000004   Code   RO            5    i.Main_lStartMotor  main.o
-    0x110006f0   0x110006f0   0x00000022   Code   RO          255    i.Mat_ExeSimpleLp   emoccu.o
-    0x11000712   0x11000712   0x00000002   Code   RO          609    i.MemManage_Handler  isr.o
-    0x11000714   0x11000714   0x00000048   Code   RO          669    i.PORT_Init         port.o
+    0x11000668   0x11000668   0x0000007c   Code   RO          581    i.INT_Init          int.o
+    0x110006e4   0x110006e4   0x00000004   Code   RO            4    i.Main_HandleSysTick  main.o
+    0x110006e8   0x110006e8   0x00000004   Code   RO            5    i.Main_lStartMotor  main.o
+    0x110006ec   0x110006ec   0x00000022   Code   RO          255    i.Mat_ExeSimpleLp   emoccu.o
+    0x1100070e   0x1100070e   0x00000002   Code   RO          609    i.MemManage_Handler  isr.o
+    0x11000710   0x11000710   0x0000004c   Code   RO          669    i.PORT_Init         port.o
     0x1100075c   0x1100075c   0x0000003c   Code   RO            6    i.Poti_Handler      main.o
     0x11000798   0x11000798   0x00000110   Code   RO          693    i.SCU_ClkInit       scu.o
     0x110008a8   0x110008a8   0x00000032   Code   RO          696    i.SCU_Init          scu.o
@@ -806,15 +806,15 @@ Image component sizes
         92          4          0          0          0        524   adc1.o
         80         22          0          0          0        512   adc2.o
        108         22          0          0          0       2346   bdrv.o
-       120          6          0          0          0        540   ccu6.o
+       120          6          0          0          0        544   ccu6.o
        284         46          0          1         24      25309   emo.o
        386         54          0          0         16      25787   emoccu.o
          0          0         48          0          0       1693   emoccu_cfg.o
         48          4          0          0          0        506   gpt12e.o
-       128         18          0          0          0        551   int.o
+       124         16          0          0          0        551   int.o
        110         10          0          0          0       4182   isr.o
-        94          4          0          0          0      19779   main.o
-        72          6          0          0          0        552   port.o
+        94          4          0          0          0      19783   main.o
+        76          6          0          0          0        548   port.o
        322          0          0          0          0       1137   scu.o
         60         22        128          0        512        868   startup_tle987x.o
         44         14          4          0          0       1228   system_tle987x.o
@@ -822,7 +822,7 @@ Image component sizes
        104         18          0          8          0       1384   wdt1.o
 
     ----------------------------------------------------------------------
-      2096        250        214         12        552      87453   Object Totals
+      2096        248        214         12        552      87457   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          2          3          0          0   (incl. Padding)
 
@@ -871,9 +871,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2374        266        214         12        652      86317   Grand Totals
-      2374        266        214         12        652      86317   ELF Image Totals
-      2374        266        214         12          0          0   ROM Totals
+      2374        264        214         12        652      86321   Grand Totals
+      2374        264        214         12        652      86321   ELF Image Totals
+      2374        264        214         12          0          0   ROM Totals
 
 ==============================================================================
 

@@ -1,4 +1,4 @@
-/*sha256=85F9AB18DBA916212D23A0089B7A896B614C091D9EBA4E84DD67E9715CF3D78B*/
+/*sha256=C8C98B381433F59B797D73B9A142046637B29B023048398C21CE72B20A85438B*/
 /**
  * @cond
  ***********************************************************************************************************************
@@ -30,14 +30,14 @@
 
 /*------------------------------------------------------------------------------
 IFXConfigWizard output file
-created on:So Jul 9 21:20:52 2017
+created on:Wed Aug 15 12:44:19 2018
 ------------------------------------------------------------------------------*/
 
 #ifndef _ISR_DEFINES_H
 #define _ISR_DEFINES_H
 
 #ifndef IFXConfigWizard_Version
-  #define IFXConfigWizard_Version 1.8.7
+  #define IFXConfigWizard_Version 1.8.6
 #endif
 
 /* XML Version 1.3.0 */
