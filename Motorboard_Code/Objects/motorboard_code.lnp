@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\emo.o"
+".\objects\emoccu.o"
+".\objects\emoccu_cfg.o"
+".\objects\adc1.o"
+".\objects\adc2.o"
+".\objects\bdrv.o"
+".\objects\bootrom.o"
+".\objects\ccu6.o"
+".\objects\dma.o"
+".\objects\gpt12e.o"
+".\objects\int.o"
+".\objects\isr.o"
+".\objects\port.o"
+".\objects\scu.o"
+".\objects\ssc.o"
+".\objects\startup_tle987x.o"
+".\objects\system_tle987x.o"
+".\objects\timer2x.o"
+".\objects\tle_device.o"
+".\objects\wdt1.o"
+--strict --scatter ".\Objects\motorboard_code.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\motorboard_code.map" -o .\Objects\motorboard_code.axf
