@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?><!--sha256=B29F6A76112FFD557C3B8804CCFC58F7CD66B18F11B61692FEE628BB7BAC0B1B-->
+<!--file ePower.xml                                                                -->
+<!--brief ePower Modules configuration                                             -->
+<!--                                                                                -->
+<!--You can use this file under the terms of the IFX License.                       -->
+<!--                                                                                -->
+<!--This file is distributed in the hope that it will be useful,                    -->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of                  -->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                   -->
+<!--IFX License for more details (IFX_License.txt).                                 -->
+<!--                                                                                -->
+<!--This file may be used, copied, and distributed, with or without                 -->
+<!--modification, provided that all copyright notices are retained;                 -->
+<!--that all modifications to this file are prominently noted in the                -->
+<!--modified file; and that this paragraph is not modified.                         -->
+<!--                                                                                -->
+<!--copyright Copyright (C) 2012 Infineon Technologies AG                           -->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--**        Infineon ePower Family TLE986x/7x Module Configuration Files        **-->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--**                      Author(s) Identity                                    **-->
+<!--********************************************************************************-->
+<!--** Initials     Name                                                          **-->
+<!--** DM           Daniel Mysliwitz                                              **-->
+<!--** TA           Thomas Albersinger                                            **-->
+<!--**                                                                            **-->
+<!--********************************************************************************-->
+<!--                                                                                -->
+<!--********************************************************************************-->
+<!--**                      Revision Control History                              **-->
+<!--********************************************************************************-->
+<!--*                                                                              *-->
+<!--* V1.0.0: 2014-05-04, DM:   Initial version                                    *-->
+<!--* V1.0.1: 2014-11-20, DM:   reorganize the FOC current settings                *-->
+<!--* V1.0.2: 2015-02-15, DM:   XML version raised to V0.3                         *-->
+<!--* V1.0.3: 2015-09-07, SS:   minor text changes, new 60 degree offset           *-->
+<!--*                                                                              *-->
+<!--********************************************************************************-->
+<ifxmlcfg version="0.3">
+	<version label="V0.0.1"/>
+	<module label="Block Commutation Motor Parameter" desc="Motor Algorithm Parameter">
+		<header define="bchall_defines.h">
+			<button label="Block Commutation" define="BCHALL_EN">
+				<branch label="General Parameters">
+					<combo label="PWM Frequency [Hz]" define="BCHALL_PWM_FREQ" default="20kHz">
+						<item label="10kHz" value="10000" lockon="CCU6_T12_FREQ=10000;CCU6_T12_PERIOD_SEL=2"/>
+						<item label="15kHz" value="15000" lockon="CCU6_T12_FREQ=15000;CCU6_T12_PERIOD_SEL=2"/>
+						<item label="20kHz" value="20000" lockon="CCU6_T12_FREQ=20000;CCU6_T12_PERIOD_SEL=2"/>
+						<item label="25kHz" value="25000" lockon="CCU6_T12_FREQ=25000;CCU6_T12_PERIOD_SEL=2"/>
+					</combo>
+					<math label="PWM Period [us]" define="BCHALL_PWM_PERIOD" formula="1e6/BCHALL_PWM_FREQ"/>
+				</branch>
+				<branch label="Motor Parameters">
+					<edit label="Pole Pairs" define="BCHALL_POLE_PAIRS" range="1;32" default="1"/>
+					<edit label="Initial Duty Cycle [%]" define="BCHALL_INIT_DUTY" range="0;100" default="30"/>
+				</branch>
+				<branch label="HALL Parameters">
+					<combo label="HALL Input A" define="BCHALL_INPUT_A" default="P2.0 (CCPOS0_3)">
+						<item label="P0.3 (CCPOS0_1)" lockon="CCU6_PISEL0[9:8]=CCPOS0_1 (P0.3)"/>
+						<item label="P1.3 (CCPOS0_2)" lockon="CCU6_PISEL0[9:8]=CCPOS0_2 (P1.3)"/>
+						<item label="P2.0 (CCPOS0_3)" lockon="CCU6_PISEL0[9:8]=CCPOS0_3 (P2.0)"/>
+					</combo>
+					<combo label="HALL Input B" define="BCHALL_INPUT_B" default="P2.3 (CCPOS1_0)">
+						<item label="P2.3 (CCPOS1_0)" lockon="CCU6_PISEL0[11:10]=CCPOS1_0 (P2.3)"/>
+						<item label="P0.4 (CCPOS1_1)" lockon="CCU6_PISEL0[11:10]=CCPOS1_1 (P0.4)"/>
+						<item label="P1.4 (CCPOS1_2)" lockon="CCU6_PISEL0[11:10]=CCPOS1_2 (P1.4)"/>
+					</combo>
+					<combo label="HALL Input C" define="BCHALL_INPUT_C" default="P2.2 (CCPOS2_3)">
+						<item label="P0.2 (CCPOS2_1)" lockon="CCU6_PISEL0[13:12]=CCPOS2_1 (P0.2)"/>
+						<item label="P1.2 (CCPOS2_2)" lockon="CCU6_PISEL0[13:12]=CCPOS2_2 (P1.2)"/>
+						<item label="P2.2 (CCPOS2_3)" lockon="CCU6_PISEL0[13:12]=CCPOS2_3 (P2.2)"/>
+					</combo>
+					<button label="HALL 60 degree offset enable" define="BCHALL_OFFSET_60DEGREE_EN"/>
+					<button label="HALL angle delay enable" define="BCHALL_ANGLE_DELAY_EN">
+						<edit label="Angle delay [Degrees]" define="BCHALL_DELAY_ANGLE" range="0;59" default="0"/>
+						<edit label="Min. speed for angle delay [rpm,mech.]" define="BCHALL_DELAY_MINSPEED" range="0;2000" default="500"/>
+					</button>
+				</branch>
+				<branch label="Speed Controller Settings">
+					<edit label="Kp" define="BCHALL_SPEED_KP" range="0;32767" default="40"/>
+					<edit label="Ki" define="BCHALL_SPEED_KI" range="0;32767" default="20"/>
+					<branch label="Speed Controller Limits">
+						<edit label="I min. output duty cycle [%]" define="BCHALL_SPEED_IMIN" range="0;100" default="0"/>
+						<edit label="I max. output duty cycle [%]" define="BCHALL_SPEED_IMAX" range="0;100" default="75"/>
+						<edit label="PI min. output duty cycle [%]" define="BCHALL_SPEED_PIMIN" range="0;100" default="8"/>
+						<edit label="PI max. output duty cycle [%]" define="BCHALL_SPEED_PIMAX" range="0;100" default="75"/>
+					</branch>
+				</branch>
+			</button>
+		</header>
+	</module>
+	<include>./ICW_TLE987x.xml</include>
+</ifxmlcfg>

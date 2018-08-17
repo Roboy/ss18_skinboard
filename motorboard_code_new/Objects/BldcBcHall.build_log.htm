@@ -1,0 +1,167 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.25.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: stephen bullock, student, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.25.2.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.25.2.0
+Dialog DLL:      DCM.DLL V1.17.1.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
+Dialog DLL:      TCM.DLL V1.35.1.0
+ 
+<h2>Project:</h2>
+C:\Users\Stephen\Dropbox\Roboy\Motorboard\ss18_skinboard\BLDC_BC_HALL_EXAMPLE_TLE987X\BldcBcHall.uvprojx
+Project File Date:  08/12/2018
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'TLE9879 EvalKit'
+compiling Main.c...
+compiling EmoCcu.c...
+compiling Emo.c...
+compiling adc1.c...
+compiling EmoCcu_Cfg.c...
+compiling adc2.c...
+compiling bdrv.c...
+compiling bootrom.c...
+compiling ccu6.c...
+compiling gpt12e.c...
+compiling int.c...
+compiling isr.c...
+assembling startup_tle987x.s...
+compiling scu.c...
+compiling port.c...
+compiling system_tle987x.c...
+compiling tle_device.c...
+compiling wdt1.c...
+linking...
+Program Size: Code=2374 RO-data=214 RW-data=12 ZI-data=652  
+".\Objects\BldcBcHall.axf" - 0 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM.CMSIS.5.4.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.1.2
+
+Package Vendor: Infineon
+                http://dave.infineon.com/Libraries/CMSIS_PACK/Infineon.TLE987x_DFP.1.3.2.pack
+                Infineon.TLE987x_DFP.1.3.2
+                Infineon TLE987x Series Device Support
+   * Component: ConfigWizard Version: 1.8.6
+   * Component: ADC1 Version: 0.1.6
+   * Component: ADC2 Version: 0.1.6
+   * Component: BDRV Version: 0.3.7
+   * Component: BOOTROM Version: 0.2.1
+   * Component: CCU6 Version: 0.2.3
+   * Component: GPT12E Version: 0.1.4
+   * Component: INT Version: 0.1.4
+   * Component: ISR Version: 0.2.0
+   * Component: PORT Version: 0.5.2
+   * Component: SCU Version: 0.3.1
+   * Component: WDT1 Version: 0.2.6
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\TLE9879QXA40
+  .\RTE\_TLE9879_EvalKit
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.1.2
+
+   * Component: Infineon::Device:ConfigWizard:1.8.6
+      Source file:   Device\SDK\cfgwiz\TLE9879QXA40\config.icwp
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\scu_defines.h
+      Include file:  Device\SDK\cfgwiz\common\pmu_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\ccu6_defines.h
+      Include file:  Device\SDK\cfgwiz\common\bdrv_defines.h
+      Include file:  Device\SDK\cfgwiz\common\csa_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\adc1_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\adc2_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\timer3_defines.h
+      Include file:  Device\SDK\cfgwiz\common\mon_defines.h
+      Include file:  Device\SDK\cfgwiz\common\isr_defines.h
+      Include file:  Device\SDK\cfgwiz\common\port_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\timer2x_defines.h
+      Include file:  Device\SDK\cfgwiz\common\lin_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\ssc_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\gpt12e_defines.h
+      Include file:  Device\SDK\cfgwiz\common\int_defines.h
+      Include file:  Device\SDK\cfgwiz\common\dma_defines.h
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\uart_defines.h
+
+   * Component: Infineon::Device:SDK:ADC1:0.1.6
+      Include file:  Device\SDK\inc\adc1.h
+      Source file:   Device\SDK\src\adc1.c
+
+   * Component: Infineon::Device:SDK:ADC2:0.1.6
+      Include file:  Device\SDK\inc\adc2.h
+      Source file:   Device\SDK\src\adc2.c
+
+   * Component: Infineon::Device:SDK:BDRV:0.3.7
+      Include file:  Device\SDK\inc\bdrv.h
+      Source file:   Device\SDK\src\bdrv.c
+
+   * Component: Infineon::Device:SDK:BOOTROM:0.2.1
+      Source file:   Device\SDK\src\bootrom.c
+      Include file:  Device\SDK\inc\bootrom.h
+
+   * Component: Infineon::Device:SDK:CCU6:0.2.3
+      Include file:  Device\SDK\inc\ccu6.h
+      Source file:   Device\SDK\src\ccu6.c
+
+   * Component: Infineon::Device:SDK:GPT12E:0.1.4
+      Source file:   Device\SDK\src\gpt12e.c
+      Include file:  Device\SDK\inc\gpt12e.h
+
+   * Component: Infineon::Device:SDK:INT:0.1.4
+      Include file:  Device\SDK\inc\int.h
+      Source file:   Device\SDK\src\int.c
+
+   * Component: Infineon::Device:SDK:ISR:0.2.0
+      Source file:   Device\SDK\src\isr.c
+      Include file:  Device\SDK\inc\isr.h
+
+   * Component: Infineon::Device:SDK:PORT:0.5.2
+      Source file:   Device\SDK\src\port.c
+      Include file:  Device\SDK\inc\port.h
+
+   * Component: Infineon::Device:SDK:SCU:0.3.1
+      Include file:  Device\SDK\inc\lin.h
+      Include file:  Device\SDK\inc\scu.h
+      Source file:   Device\SDK\src\scu.c
+
+   * Component: Infineon::Device:SDK:WDT1:0.2.6
+      Include file:  Device\SDK\inc\wdt1.h
+      Source file:   Device\SDK\src\wdt1.c
+
+   * Component: Infineon::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_tle987x.s
+      Include file:  Device\Include\tle_device.h
+      Include file:  Device\Include\types.h
+      Source file:   Device\SDK\app\main.c
+      Include file:  Device\Include\eval_board.h
+      Source file:   Device\Source\tle_device.c
+      Include file:  Device\SDK\cfgwiz\TLE9879QXA40\bsl_defines.h
+      Include file:  Device\Include\system_tle987x.h
+      Source file:   Device\Source\system_tle987x.c
+      Include file:  Device\Include\tle987x.h
+Build Time Elapsed:  00:00:06
+</pre>
+</body>
+</html>
